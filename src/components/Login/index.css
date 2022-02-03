@@ -5,6 +5,8 @@
   align-items: center;
   padding: 10px;
   margin: 10px;
+  background-color: #e5e5e5;
+  height: 100vh;
 }
 
 .login-website-logo-mobile-image {
@@ -21,11 +23,15 @@
   padding: 10px;
   margin: 10px;
   text-align: center;
+  background-color: transparent;
 }
 
 .login-button {
-  width: 40px;
-  background-color: blue;
+  width: 312px;
+  height: 40px;
+  background-color: #0284c7;
+  border-radius: 8px;
+
   color: #ffffff;
 }
 
@@ -47,5 +53,14 @@
     width: 50%;
     padding: 10px;
     margin: 10px;
+    background-color: #ffffff;
+  }
+  .login-button {
+    width: 360px;
+    height: 56px;
+    background-color: #0284c7;
+    border-radius: 8px;
+
+    color: #ffffff;
   }
 }
