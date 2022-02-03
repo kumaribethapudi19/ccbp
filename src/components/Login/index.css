@@ -1,0 +1,11 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media Screen and (min-width: 768px) {
+  .login-form-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
