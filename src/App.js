@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
 import {Switch, Route, Redirect} from 'react-router-dom'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -11,10 +6,6 @@ import BookShelves from './components/BookShelves'
 
 import NotFound from './components/NotFound'
 
-<<<<<<< HEAD
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
-=======
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
 import './App.css'
 
 // use the below bookshelvesList for rendering read status of book items in Bookshelves Route
@@ -42,12 +33,6 @@ const bookshelvesList = [
   },
 ]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-const App = () => <div>Hello World</div>
-=======
-=======
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
 const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
@@ -57,9 +42,5 @@ const App = () => (
     <Redirect to="/not-found" />
   </Switch>
 )
-<<<<<<< HEAD
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
-=======
->>>>>>> c9c4c3448a619ed3509d92f7f30dfdd8276c1bc6
 
 export default App
