@@ -1,3 +1,5 @@
+import './index.css'
+
 const NotFound = () => (
   <div className="page-not-found">
     <img

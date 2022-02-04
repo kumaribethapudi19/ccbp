@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .not-found-image-style {
@@ -32,10 +33,10 @@
 .not-found-button {
   width: 132px;
   height: 32px;
-  background-color: blue;
+  background-color: #0284c7;
   color: #ffffff;
   padding: 8px 16px;
-
+  border: 0px solid transparent;
   border-radius: 8px;
   margin: 0px 0px;
 }
