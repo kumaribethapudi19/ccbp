@@ -1,0 +1,13 @@
+.nav-header {
+  height: 56px;
+  background-color: #ffffff;
+}
+
+.nav-content {
+  display: none;
+}
+
+.nav-menu-mobile {
+  display: flex;
+  flex-direction: row;
+}
