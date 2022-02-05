@@ -1,5 +1,6 @@
 import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 
@@ -54,8 +55,7 @@ class Home extends Component {
     console.log('Find Books Clicked')
   }
 
-  render() {
-    console.log('render')
+  renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
     return (
       <div className="home-page-container">
@@ -91,6 +91,18 @@ class Home extends Component {
         </div>
       </div>
     )
+  }
+
+  renderLoader = () => (
+    <div className="products-loader-container">
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  render() {
+    console.log('render')
+    const {isLoading} = this.state
+    return isLoading ? this.renderLoader() : this.renderTopRatedBooksList()
   }
 }
 export default Home
