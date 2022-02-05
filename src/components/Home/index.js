@@ -3,7 +3,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
-
+import BooksSlick from '../BooksSlick'
 import './index.css'
 
 class Home extends Component {
@@ -49,6 +49,7 @@ class Home extends Component {
   renderCarousal = () => {
     const {topRatedBooksList} = this.state
     console.log(topRatedBooksList)
+    return <BooksSlick booksList={topRatedBooksList} />
   }
 
   onClickFindBooks = () => {
