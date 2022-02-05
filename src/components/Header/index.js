@@ -22,24 +22,22 @@ class Header extends Component {
   renderMenu = () => {
     console.log('render menu called')
     return (
-      <div className="hamburger-menu-expanded">
-        <ul className="nav-menu-list-mobile">
-          <Link to="/">
-            <li className="nav-menu-item-mobile">Home</li>
-          </Link>
-          <Link to="/shelves">
-            <li className="nav-menu-item-mobile">BookShelves</li>
-          </Link>
-          <button
-            type="button"
-            className="logout-mobile-btn"
-            onClick={this.onClickLogout}
-          >
-            Logout
-          </button>
-          <AiFillCloseCircle />
-        </ul>
-      </div>
+      <ul className="nav-menu-list-mobile">
+        <Link to="/">
+          <li className="nav-menu-item-mobile">Home</li>
+        </Link>
+        <Link to="/shelves">
+          <li className="nav-menu-item-mobile">BookShelves</li>
+        </Link>
+        <button
+          type="button"
+          className="logout-mobile-btn"
+          onClick={this.onClickLogout}
+        >
+          Logout
+        </button>
+        <AiFillCloseCircle />
+      </ul>
     )
   }
 
