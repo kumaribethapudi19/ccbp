@@ -23,11 +23,15 @@
   width: 50%;
 }
 
-#hamburger-menu-expanded {
+.hamburger-menu-expanded {
   background-color: aquamarine;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.ham-menu-display {
+  display: block;
 }
 
 .nav-menu-list-mobile {
@@ -41,15 +45,7 @@
   width: auto;
 }
 
-.ham-menu-display {
-  display: none;
-}
-
 @media Screen and (min-width: 768px) {
-  .ham-menu-display {
-    display: none;
-  }
-
   .nav-content {
     display: block;
     display: flex;

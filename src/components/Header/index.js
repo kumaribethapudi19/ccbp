@@ -19,29 +19,33 @@ class Header extends Component {
     this.setState(prevState => ({isButtonClicked: !prevState.isButtonClicked}))
   }
 
-  renderMenu = () => (
-    <div id="hamburger-menu-expanded">
-      <ul className="nav-menu-list-mobile">
-        <Link to="/">
-          <li className="nav-menu-item-mobile">Home</li>
-        </Link>
-        <Link to="/shelves">
-          <li className="nav-menu-item-mobile">BookShelves</li>
-        </Link>
-        <button
-          type="button"
-          className="logout-mobile-btn"
-          onClick={this.onClickLogout}
-        >
-          Logout
-        </button>
-        <AiFillCloseCircle />
-      </ul>
-    </div>
-  )
+  renderMenu = () => {
+    console.log('render menu called')
+    return (
+      <div className="hamburger-menu-expanded">
+        <ul className="nav-menu-list-mobile">
+          <Link to="/">
+            <li className="nav-menu-item-mobile">Home</li>
+          </Link>
+          <Link to="/shelves">
+            <li className="nav-menu-item-mobile">BookShelves</li>
+          </Link>
+          <button
+            type="button"
+            className="logout-mobile-btn"
+            onClick={this.onClickLogout}
+          >
+            Logout
+          </button>
+          <AiFillCloseCircle />
+        </ul>
+      </div>
+    )
+  }
 
   render() {
     const {isButtonClicked} = this.state
+    console.log(isButtonClicked)
     return (
       <>
         <nav className="nav-header">
@@ -87,7 +91,7 @@ class Header extends Component {
           </div>
         </nav>
         <div className="ham-menu-display">
-          isButtonClicked && {this.renderMenu()}
+          {isButtonClicked ? this.renderMenu() : null}
         </div>
       </>
     )
