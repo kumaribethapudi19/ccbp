@@ -43,7 +43,7 @@ class Header extends Component {
 
   render() {
     const {isButtonClicked} = this.state
-    console.log(isButtonClicked)
+    // console.log(isButtonClicked)
     return (
       <>
         <nav className="nav-header">

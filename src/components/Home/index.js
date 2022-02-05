@@ -1,5 +1,6 @@
+import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
-
+import Cookies from 'js-cookie'
 import Header from '../Header'
 
 import './index.css'
@@ -7,6 +8,46 @@ import './index.css'
 class Home extends Component {
   state = {
     topRatedBooksList: [],
+    isLoading: false,
+  }
+
+  componentDidMount() {
+    console.log('component did mount method')
+    this.getTopRatedBooks()
+  }
+
+  getTopRatedBooks = async () => {
+    this.setState({
+      isLoading: true,
+    })
+    console.log('get toprated books list')
+    const jwtToken = Cookies.get('jwt_token')
+    const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
+    const options = {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+      method: 'GET',
+    }
+    console.log('After fetching get the response')
+    const response = await fetch(url, options)
+    console.log(response)
+    if (response.ok) {
+      const fetchedData = await response.json()
+      console.log(fetchedData)
+      const updatedData = fetchedData.books.map(book => ({
+        id: book.id,
+        authorName: book.author_name,
+        coverPic: book.cover_pic,
+        title: book.title,
+      }))
+      this.setState({topRatedBooksList: updatedData, isLoading: false})
+    }
+  }
+
+  renderCarousal = () => {
+    const {topRatedBooksList} = this.state
+    console.log(topRatedBooksList)
   }
 
   onClickFindBooks = () => {
@@ -14,6 +55,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log('render')
     const {topRatedBooksList} = this.state
     return (
       <div className="home-page-container">
@@ -42,6 +84,7 @@ class Home extends Component {
             </h1>
           </div>
           <h1>Carousal Should Come here</h1>
+          <div>{this.renderCarousal()}</div>
         </div>
         <div className="footer-section">
           <h1>Icons Should come here</h1>
