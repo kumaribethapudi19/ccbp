@@ -5,4 +5,56 @@
   align-items: flex-start;
   margin: 20px;
   padding: 20px;
+  background-color: #e5e5e5;
+}
+
+.home-description-card {
+  background-color: #e5e5e5;
+}
+
+.home-page-heading {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+
+  display: flex;
+  align-items: center;
+
+  color: #1e293b;
+}
+
+.home-page-description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+
+  display: flex;
+  align-items: center;
+
+  color: #475569;
+}
+
+.home-page-find-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+
+  position: static;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background-color: #0284c7;
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
 }
