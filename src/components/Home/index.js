@@ -14,8 +14,14 @@ const Home = () => (
       <button className="home-page-find-button">Find Books</button>
     </div>
     <div className="books-display-card">
-      <h1 className="display-heading">Top Rated Books</h1>
-      <button className="display-card-find-button">Find Books</button>
+      <div className="books-display-card-header">
+        <h1 className="display-heading">
+          Top Rated Books
+          <span>
+            <button className="display-card-find-button">Find Books</button>{' '}
+          </span>
+        </h1>
+      </div>
       <h1>Carousal Should Come here</h1>
     </div>
     <div className="footer-section">
