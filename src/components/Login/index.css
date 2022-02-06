@@ -1,29 +1,78 @@
 .login-form-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
   background-color: #e5e5e5;
-  height: 100vh;
 }
 
-.login-website-logo-mobile-image {
+.login-website-mobile-image {
   width: 50%;
-  padding: 10px;
-  margin: 10px;
+  height: 50%;
+  margin: 32px 72px;
 }
 
 .login-image {
   display: none;
 }
-.form-container {
-  width: 80%;
-  padding: 10px;
-  margin: 10px;
-  text-align: center;
-  background-color: transparent;
+.login-website-logo-mobile-image {
+  width: 104px;
+  height: 28px;
+  margin-left: 128px;
+  margin-right: 128px;
+}
+.login-website-logo-desktop-image {
+  display: none;
+}
+.input-container {
+  height: 90px;
+  width: 312px;
+  margin-left: 24px;
+  margin-top: 20px;
+}
+.input-label {
+  height: 19px;
+  width: 94px;
+  margin-left: 0px;
+  margin-top: 3px;
+  margin-bottom: 34px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #5a7184;
+}
+
+.username-input-field {
+  height: 56px;
+  width: 312px;
+  border-radius: 8px;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  background-color: #ffffff;
+  border: 1px solid #c3cad9;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.password-input-field {
+  height: 56px;
+  width: 312px;
+  border-radius: 8px;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  background-color: #ffffff;
+  border: 1px solid #c3cad9;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .login-button {
@@ -31,36 +80,150 @@
   height: 40px;
   background-color: #0284c7;
   border-radius: 8px;
-
   color: #ffffff;
+  margin: 24px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.error-message {
+  width: 205px;
+  height: 18px;
+  margin-left: 24px;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ef4444;
 }
 
 @media Screen and (min-width: 768px) {
   .login-form-container {
+    height: 1024px;
+    width: 1440px;
+    border-radius: 0px;
+    background-color: #e5e5e5;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0px;
   }
 
-  .login-website-logo-mobile-image {
+  .login-website-mobile-image {
     display: none;
   }
 
   .login-image {
     display: block;
+    width: 780px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
   }
 
   .form-container {
-    width: 50%;
-    padding: 10px;
-    margin: 10px;
     background-color: #ffffff;
+    margin-left: 100px;
+    width: 499px;
+    height: 484px;
+    margin-top: 270px;
+    padding: 70px;
   }
+  .login-website-logo-mobile-image {
+    display: none;
+  }
+  .login-website-logo-desktop-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 141px;
+    height: 48px;
+    margin-left: 100px;
+    margin-bottom: 40px;
+  }
+
+  .input-container {
+    margin-top: 15px;
+    margin-left: 0px;
+    height: 90px;
+    width: 360px;
+  }
+
+  .input-label {
+    height: 19px;
+    width: 88px;
+    margin-top: 3px;
+    margin-left: 0%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #5a7184;
+  }
+
+  .username-input-field {
+    height: 56px;
+    width: 360px;
+
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #ffffff;
+    border: 1px solid #c3cad9;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+
+  .password-input-field {
+    height: 56px;
+    width: 360px;
+
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background: #ffffff;
+    border: 1px solid #c3cad9;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+
+  .error-message {
+    width: 215px;
+    height: 17px;
+    margin-left: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ef4444;
+  }
+
   .login-button {
     width: 360px;
     height: 56px;
     background-color: #0284c7;
     border-radius: 8px;
-
+    padding: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
     color: #ffffff;
+    margin: 8px;
+    padding: 10px;
   }
 }

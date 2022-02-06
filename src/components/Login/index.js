@@ -20,10 +20,10 @@ class Login extends Component {
     this.setState({password: event.target.value})
   }
 
-  onSubmitSuccess = jwtTkoken => {
+  onSubmitSuccess = jwtToken => {
     const {history} = this.props
 
-    Cookies.set('jwt_token', jwtTkoken, {
+    Cookies.set('jwt_token', jwtToken, {
       expires: 30,
       path: '/',
     })
@@ -63,7 +63,7 @@ class Login extends Component {
         <input
           type="password"
           id="password"
-          className="password-input-filed"
+          className="password-input-field"
           value={password}
           onChange={this.onChangePassword}
         />
@@ -81,7 +81,7 @@ class Login extends Component {
         <input
           type="text"
           id="username"
-          className="username-input-filed"
+          className="username-input-field"
           value={username}
           onChange={this.onChangeUsername}
         />
@@ -99,13 +99,18 @@ class Login extends Component {
       <div className="login-form-container">
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911379/BookHub/login_page_hjiqng.png"
-          className="login-website-logo-mobile-image"
+          className="login-website-mobile-image"
           alt="website logo"
         />
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911380/BookHub/login-desktop-img_qr6ncp.png"
           className="login-image"
           alt="website login"
+        />
+        <img
+          src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
+          className="login-website-logo-mobile-image"
+          alt="website logo"
         />
         <form className="form-container" onSubmit={this.submitForm}>
           <img
@@ -115,10 +120,11 @@ class Login extends Component {
           />
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>
+          {showSubmitError && <p className="error-message">*{errorMsg}</p>}
+          <br />
           <button type="submit" className="login-button">
             Login
           </button>
-          {showSubmitError && <p className="error-message">*{errorMsg}</p>}
         </form>
       </div>
     )
