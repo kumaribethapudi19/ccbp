@@ -9,8 +9,8 @@ const BooksSlick = props => {
   const {booksList} = props
   console.log(booksList)
   const settings = {
-    dots: true,
-    slidesToShow: 1,
+    dots: false,
+    slidesToShow: 3,
     slidesToScroll: 1,
   }
   return (

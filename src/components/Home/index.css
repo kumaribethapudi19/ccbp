@@ -109,6 +109,45 @@
   display: none;
 }
 
+.footer-section {
+  height: 16px;
+  width: 111px;
+  margin-left: 125px;
+
+  background-color: #3d3c3c;
+}
+
+.icon-style {
+  height: 16px;
+  width: 14px;
+  font-family: Font Awesome 5 Brands;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13.7143px;
+  line-height: 16px;
+  text-align: center;
+
+  color: #3d3c3c;
+}
+
+.footer-note {
+  height: 16px;
+  width: 60px;
+  margin-left: 150px;
+  left: 41.67%;
+  right: 41.67%;
+  top: 90.08%;
+  bottom: 7.44%;
+
+  font-family: ' HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: #3d3c3c;
+}
+
 @media Screen and (min-width: 768px) {
   .home-page-heading {
     position: absolute;
@@ -193,5 +232,49 @@
     background-color: #0284c7;
     border-radius: 4px;
     width: 120px;
+  }
+  .footer-section {
+    height: 21px;
+    width: 145px;
+    margin-left: 647px;
+    background-color: #3d3c3c;
+  }
+
+  .icon-style {
+    height: 21px;
+    width: 18px;
+
+    left: 44.93%;
+    right: 53.82%;
+    top: 87.79%;
+    bottom: 10.16%;
+
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #3d3c3c;
+  }
+
+  .footer-note {
+    height: 24px;
+    width: 80px;
+    margin-left: 679px;
+
+    left: 47.15%;
+    right: 47.29%;
+    top: 91.41%;
+    bottom: 6.25%;
+
+    font-family: 'HK Grotesk';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #3d3c3c;
   }
 }

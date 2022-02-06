@@ -2,14 +2,22 @@ import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import Header from '../Header'
 import BooksSlick from '../BooksSlick'
+
 import './index.css'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
 class Home extends Component {
   state = {
     topRatedBooksList: [],
-    isLoading: false,
+    apiStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
@@ -19,7 +27,7 @@ class Home extends Component {
 
   getTopRatedBooks = async () => {
     this.setState({
-      isLoading: true,
+      apiStatus: apiStatusConstants.inProgress,
     })
     console.log('get toprated books list')
     const jwtToken = Cookies.get('jwt_token')
@@ -42,7 +50,14 @@ class Home extends Component {
         coverPic: book.cover_pic,
         title: book.title,
       }))
-      this.setState({topRatedBooksList: updatedData, isLoading: false})
+      this.setState({
+        topRatedBooksList: updatedData,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+      })
     }
   }
 
@@ -88,22 +103,36 @@ class Home extends Component {
           <div>{this.renderCarousal()}</div>
         </div>
         <div className="footer-section">
-          <h1>Icons Should come here</h1>
+          <FaGoogle className="icon-style" />
+          <FaTwitter className="icon-style" />
+          <FaInstagram className="icon-style" />
+          <FaYoutube className="icon-style" />
         </div>
+        <h3 className="footer-note">Contact us</h3>
       </div>
     )
   }
 
-  renderLoader = () => (
+  renderFailureView = () => <h1>Failure View Here</h1>
+
+  renderLoadingView = () => (
     <div className="products-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )
 
   render() {
-    console.log('render')
-    const {isLoading} = this.state
-    return isLoading ? this.renderLoader() : this.renderTopRatedBooksList()
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTopRatedBooksList()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
   }
 }
 export default Home
