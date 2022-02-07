@@ -36,7 +36,7 @@ class Header extends Component {
         >
           Logout
         </button>
-        <AiFillCloseCircle />
+        <AiFillCloseCircle className="cross-icon-style" />
       </ul>
     )
   }

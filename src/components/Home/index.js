@@ -75,40 +75,55 @@ class Home extends Component {
     const {topRatedBooksList} = this.state
     return (
       <div className="home-page-container">
-        <Header />
-        <div className="home-description-card">
-          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
-          <p className="home-page-description">
-            You are in the right place. Tell us what titles or genres you have
-            enjoyed in the past, and we will give you surprisingly insightful
-            recommendations.
-          </p>
-          <button
-            className="home-page-find-button"
-            onClick={this.onClickFindBooks}
-          >
-            Find Books
-          </button>
+        <div className="header-container">
+          <Header />
         </div>
-        <div className="books-display-card">
-          <div className="books-display-card-header">
-            <h1 className="display-heading">
-              Top Rated Books
-              <span>
-                <button className="display-card-find-button">Find Books</button>{' '}
-              </span>
+        <div className="body-container">
+          <div className="home-description-card">
+            <h1 className="home-page-heading">
+              Find Your Next Favorite Books?
             </h1>
+            <p className="home-page-description">
+              You are in the right place. Tell us what titles or genres you have
+              enjoyed in the past, and we will give you surprisingly insightful
+              recommendations.
+            </p>
+            <button
+              className="home-page-find-button"
+              type="button"
+              onClick={this.onClickFindBooks}
+            >
+              Find Books
+            </button>
           </div>
-          <h1>Carousal Should Come here</h1>
-          <div>{this.renderCarousal()}</div>
+          <div className="books-display-card">
+            <div className="books-display-card-header">
+              <h1 className="display-card-heading">
+                Top Rated Books
+                <span>
+                  <button
+                    type="button"
+                    className="display-card-find-button"
+                    onClick={this.onClickFindBooks}
+                  >
+                    Find Books
+                  </button>
+                </span>
+              </h1>
+            </div>
+
+            <div className="slick-display-style">{this.renderCarousal()}</div>
+          </div>
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <h3 className="footer-note">Contact us</h3>
+          </div>
         </div>
-        <div className="footer-section">
-          <FaGoogle className="icon-style" />
-          <FaTwitter className="icon-style" />
-          <FaInstagram className="icon-style" />
-          <FaYoutube className="icon-style" />
-        </div>
-        <h3 className="footer-note">Contact us</h3>
       </div>
     )
   }
@@ -116,7 +131,7 @@ class Home extends Component {
   renderFailureView = () => <h1>Failure View Here</h1>
 
   renderLoadingView = () => (
-    <div className="products-loader-container">
+    <div className="bookhub-loader-container">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )

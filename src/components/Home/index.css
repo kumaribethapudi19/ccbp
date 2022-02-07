@@ -8,18 +8,32 @@
   height: 100vh;
 }
 
+.header-container {
+  height: 20vh;
+}
+.body-container {
+  background-color: #e5e5e5;
+}
+
+.bookhub-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .home-description-card {
   background-color: #e5e5e5;
   width: 100%;
+  height: 40vh;
 }
 
 .home-page-heading {
-  position: absolute;
   width: 312px;
   height: 32px;
-  left: 24px;
-  top: 80px;
-  font-family: Inter;
+  margin-left: 24px;
+
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -32,13 +46,11 @@
 }
 
 .home-page-description {
-  position: absolute;
   width: 312px;
   height: 96px;
-  left: 24px;
-  top: 120px;
+  margin-left: 24px;
 
-  font-family: Inter;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -51,11 +63,10 @@
 }
 
 .home-page-find-button {
-  position: absolute;
   width: 104px;
   height: 36px;
-  left: 24px;
-  top: 232px;
+  margin-left: 24px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,32 +75,28 @@
 
   background-color: #0284c7;
   border-radius: 4px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 0px;
 }
 
 .books-display-card {
-  position: absolute;
   width: 100%;
   height: 203px;
-  left: 0px;
-  top: 284px;
-
+  margin-left: 0px;
   background-color: #ffffff;
   box-shadow: 0px 0px 0.443396px rgba(40, 41, 61, 0.08),
     0px 0.443396px 0.886792px rgba(96, 97, 112, 0.16);
 }
 
+.books-display-card-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .display-card-heading {
-  position: absolute;
   width: 130px;
   height: 24px;
-  left: 24px;
-  top: 300px;
+  margin-left: 24px;
 
-  font-family: Inter;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -109,7 +116,15 @@
   display: none;
 }
 
+.slick-display-style {
+  margin: 0px;
+  padding: 0px;
+}
+
 .footer-section {
+}
+
+.footer-icons-container {
   height: 16px;
   width: 111px;
   margin-left: 125px;
@@ -120,7 +135,7 @@
 .icon-style {
   height: 16px;
   width: 14px;
-  font-family: Font Awesome 5 Brands;
+  font-family: ' Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
   font-size: 13.7143px;
@@ -134,10 +149,7 @@
   height: 16px;
   width: 60px;
   margin-left: 150px;
-  left: 41.67%;
-  right: 41.67%;
-  top: 90.08%;
-  bottom: 7.44%;
+  margin-left: 41.67%;
 
   font-family: ' HK Grotesk';
   font-style: normal;
@@ -149,14 +161,26 @@
 }
 
 @media Screen and (min-width: 768px) {
+  .header-container {
+    height: 10vh;
+  }
+
+  .body-container {
+    background-color: #e5e5e5;
+  }
+
+  .home-description-card {
+    background-color: #e5e5e5;
+    width: 100%;
+    height: 25vh;
+  }
+
   .home-page-heading {
-    position: absolute;
     width: 601px;
     height: 64px;
-    left: 100px;
-    top: 137px;
+    margin-left: 100px;
 
-    font-family: Inter;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
@@ -168,12 +192,11 @@
     color: #1e293b;
   }
   .home-page-description {
-    position: absolute;
     width: 998px;
     height: 64px;
-    left: 100px;
-    top: 213px;
-    font-family: Inter;
+    margin-left: 100px;
+
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -190,13 +213,11 @@
   }
 
   .books-display-card {
-    position: absolute;
     width: 1150px;
     height: 424px;
-    left: 100px;
-    top: 309px;
-
+    margin-left: 100px;
     background-color: #ffffff;
+    padding: 25px;
 
     box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
       0px 1px 2px rgba(96, 97, 112, 0.16);
@@ -205,16 +226,17 @@
 
   .books-display-card-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-bottom: 20px;
   }
 
   .display-card-heading {
-    width: 100px;
+    width: 100%;
     height: 32px;
     text-align: start;
     padding: 10px;
     order: 0;
-    font-family: Inter;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -232,8 +254,18 @@
     background-color: #0284c7;
     border-radius: 4px;
     width: 120px;
+    margin-left: 700px;
   }
+
+  .slick-display-style {
+    margin: 0px;
+    padding: 0px;
+  }
+
   .footer-section {
+  }
+
+  .footer-icons-container {
     height: 21px;
     width: 145px;
     margin-left: 647px;
@@ -244,10 +276,7 @@
     height: 21px;
     width: 18px;
 
-    left: 44.93%;
-    right: 53.82%;
-    top: 87.79%;
-    bottom: 10.16%;
+    margin-left: 44.93%;
 
     font-family: 'Font Awesome 5 Brands';
     font-style: normal;

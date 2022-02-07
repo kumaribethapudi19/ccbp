@@ -19,10 +19,10 @@ const BooksSlick = props => {
         {booksList.map(each => {
           const {coverPic, title, authorName, id} = each
           return (
-            <div key={each.id}>
-              <img src={each.coverPic} />
-              <h1>{each.title}</h1>
-              <h3>{each.authorName} </h3>
+            <div key={each.id} className="top-rated-book-card-style">
+              <img className="top-rated-book-pic-style" src={each.coverPic} />
+              <h1 className="top-rated-book-title-style">{each.title}</h1>
+              <p className="top-rated-book-name-style">{each.authorName} </p>
             </div>
           )
         })}

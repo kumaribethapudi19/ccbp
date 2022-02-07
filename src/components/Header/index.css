@@ -14,6 +14,7 @@
 }
 
 .nav-menu-mobile {
+  height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,6 +40,7 @@
 
 .ham-menu-display {
   background-color: #e5e5e5;
+  height: 10vh;
 }
 
 .nav-menu-list-mobile {
@@ -47,7 +49,9 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 50px;
+  height: 10vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .nav-menu-item-mobile {
@@ -58,14 +62,15 @@
   line-height: 26px;
   letter-spacing: -0.355556px;
   color: #64748b;
+  margin: 20px;
 }
 .logout-mobile-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 8px 16px;
+  margin: 20px;
 
-  position: static;
   left: 0%;
   right: 0%;
   top: 0%;
@@ -81,6 +86,10 @@
   order: 0;
   flex-grow: 0;
   margin: 0px 0px;
+}
+
+.cross-icon-style {
+  margin-left: 20px;
 }
 
 @media Screen and (min-width: 768px) {
