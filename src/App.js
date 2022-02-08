@@ -2,6 +2,7 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './components/Home'
+import BookDetails from './components/BookDetails'
 import BookShelves from './components/BookShelves'
 
 import NotFound from './components/NotFound'
@@ -37,6 +38,7 @@ const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
     <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/books/:bookId" component={BookDetails} />
     <ProtectedRoute exact path="/shelves" component={BookShelves} />
     <Route path="/not-found" component={NotFound} />
     <Redirect to="/not-found" />
