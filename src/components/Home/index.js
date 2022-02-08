@@ -128,7 +128,59 @@ class Home extends Component {
     )
   }
 
-  renderFailureView = () => <h1>Failure View Here</h1>
+  renderFailureView = () => (
+    <div className="home-page-container">
+      <div className="header-container">
+        <Header />
+      </div>
+      <div className="body-container">
+        <div className="home-description-card">
+          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
+          <p className="home-page-description">
+            You are in the right place. Tell us what titles or genres you have
+            enjoyed in the past, and we will give you surprisingly insightful
+            recommendations.
+          </p>
+          <button
+            className="home-page-find-button"
+            type="button"
+            onClick={this.onClickFindBooks}
+          >
+            Find Books
+          </button>
+        </div>
+        <div className="books-display-card">
+          <div className="books-display-card-header">
+            <h1 className="display-card-heading">
+              Top Rated Books
+              <span>
+                <button
+                  type="button"
+                  className="display-card-find-button"
+                  onClick={this.onClickFindBooks}
+                >
+                  Find Books
+                </button>
+              </span>
+            </h1>
+          </div>
+          <div className="something-wrong-view-container">
+            <img
+              className="something-wrong-view"
+              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+            />
+            <h1 className="something-wrong-heading">
+              {' '}
+              Something went wrong, Please try again.{' '}
+            </h1>
+            <button className="something-wrong-try-again-button">
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 
   renderLoadingView = () => (
     <div className="bookhub-loader-container">
