@@ -14,7 +14,7 @@ const apiStatusConstants = {
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
-class Home extends Component {
+class BookDetails extends Component {
   state = {
     topRatedBooksList: [],
     apiStatus: apiStatusConstants.initial,
@@ -97,4 +97,4 @@ class Home extends Component {
     }
   }
 }
-export default Home
+export default BookDetails
