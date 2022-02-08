@@ -92,15 +92,15 @@ class BookDetails extends Component {
         <div className="body-container">
           <div className="book-details-container">
             <div className="cover-details">
-              <img src={coverPic} alt="book" />
+              <img src={coverPic} alt="book" className="cover-pic-style" />
               <div className="cover-details-card">
-                <h1 className="heading">{title}</h1>
-                <p className="description">{authorName}</p>
-                <p className="description">{`Avg Rating  ${rating}`}</p>
-                <p className="description">{`Status: ${readStatus}`}</p>
+                <h1 className="main-heading">{title}</h1>
+                <p className="cover-description">{authorName}</p>
+                <p className="cover-description">{`Avg Rating  ${rating}`}</p>
+                <p className="cover-description">{`Status: ${readStatus}`}</p>
               </div>
             </div>
-            <br />
+            <br className="line-style" />
             <h1 className="heading">About Author</h1>
             <p className="description">{aboutAuthor}</p>
             <h1 className="heading">About Book</h1>
