@@ -38,7 +38,7 @@ const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
     <ProtectedRoute exact path="/" component={Home} />
-    <ProtectedRoute exact path="/books/:bookId" component={BookDetails} />
+    <ProtectedRoute exact path="/books/:id" component={BookDetails} />
     <ProtectedRoute exact path="/shelves" component={BookShelves} />
     <Route path="/not-found" component={NotFound} />
     <Redirect to="/not-found" />

@@ -1,4 +1,3 @@
-import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
@@ -16,7 +15,7 @@ const apiStatusConstants = {
 }
 class BookDetails extends Component {
   state = {
-    topRatedBooksList: [],
+    bookData: [],
     apiStatus: apiStatusConstants.initial,
   }
 
@@ -26,12 +25,18 @@ class BookDetails extends Component {
   }
 
   getBookDetails = async () => {
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    const bookId = id
+
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
     console.log('get book Details')
     const jwtToken = Cookies.get('jwt_token')
-    const url = 'https://apis.ccbp.in/book-hub/books/{bookId}'
+    console.log(`bookId is : ${bookId}`)
+    const url = `https://apis.ccbp.in/book-hub/books/${bookId}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -42,7 +47,22 @@ class BookDetails extends Component {
     const response = await fetch(url, options)
     console.log(response)
     if (response.ok) {
+      const fetchedData = await response.json()
+      console.log(fetchedData)
+      const updatedData = {
+        aboutAuthor: fetchedData.book_details.about_author,
+        aboutBook: fetchedData.book_details.about_book,
+        authorName: fetchedData.book_details.author_name,
+        coverPic: fetchedData.book_details.cover_pic,
+        id: fetchedData.book_details.id,
+        rating: fetchedData.book_details.rating,
+        readStatus: fetchedData.book_details.read_status,
+        title: fetchedData.book_details.title,
+      }
+      console.log(updatedData)
+
       this.setState({
+        bookData: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -52,7 +72,54 @@ class BookDetails extends Component {
     }
   }
 
-  renderBookDetails = () => <h1>Book Details shown here</h1>
+  renderBookDetails = () => {
+    const {bookData} = this.state
+    const {
+      id,
+      rating,
+      coverPic,
+      aboutAuthor,
+      aboutBook,
+      authorName,
+      readStatus,
+      title,
+    } = bookData
+    return (
+      <div className="home-page-container">
+        <div className="header-container">
+          <Header />
+        </div>
+        <div className="body-container">
+          <div className="book-details-container">
+            <div className="cover-details">
+              <img src={coverPic} alt="book" />
+              <div className="cover-details-card">
+                <h1 className="heading">{title}</h1>
+                <p className="description">{authorName}</p>
+                <p className="description">{`Avg Rating  ${rating}`}</p>
+                <p className="description">{`Status: ${readStatus}`}</p>
+              </div>
+            </div>
+            <br />
+            <h1 className="heading">About Author</h1>
+            <p className="description">{aboutAuthor}</p>
+            <h1 className="heading">About Book</h1>
+            <p className="description">{aboutBook}</p>
+          </div>
+
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <h3 className="footer-note">Contact us</h3>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   renderFailureView = () => (
     <div className="home-page-container">

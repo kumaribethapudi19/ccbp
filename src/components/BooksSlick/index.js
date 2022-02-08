@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
@@ -19,6 +19,7 @@ const BooksSlick = props => {
       <Slider {...settings}>
         {booksList.map(each => {
           const {coverPic, title, authorName, id} = each
+          console.log(id)
           return (
             <Link to={`/books/${id}`}>
               <div key={each.id} className="top-rated-book-card-style">
@@ -34,4 +35,4 @@ const BooksSlick = props => {
   )
 }
 
-export default BooksSlick
+export default withRouter(BooksSlick)
