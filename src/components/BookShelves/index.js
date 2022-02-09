@@ -17,6 +17,7 @@ const apiStatusConstants = {
 class BookShelves extends Component {
   state = {
     searchInput: '',
+    shelf: 'ALL',
     booksList: [],
     apiStatus: apiStatusConstants.initial,
   }
@@ -27,13 +28,13 @@ class BookShelves extends Component {
   }
 
   getBooks = async () => {
-    const searchInput = this.state
+    const {searchInput, shelf} = this.state
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    console.log('get toprated books list')
+    console.log('get the books list')
     const jwtToken = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/book-hub/books?shelf=All&search=${searchInput}`
+    const url = `https://apis.ccbp.in/book-hub/books?shelf=${shelf}&search=${searchInput}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -194,7 +195,7 @@ class BookShelves extends Component {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderTopRatedBooksList()
+        return this.renderBooksList()
       case apiStatusConstants.failure:
         return this.renderFailureView()
       case apiStatusConstants.inProgress:
