@@ -100,6 +100,7 @@ class BookShelves extends Component {
 
   renderBooksList = () => {
     const {booksList, searchInput} = this.state
+    const activeClass = this.renderActiveClass()
 
     return (
       <div className="home-page-container">
@@ -115,6 +116,9 @@ class BookShelves extends Component {
                 className="search-input-style"
                 value={searchInput}
               />
+              <button className="search-button">
+                <BsSearch className="search-icon-style" />
+              </button>
             </div>
           </div>
           <div className="bookshelf-header-mobile-view">
@@ -124,13 +128,16 @@ class BookShelves extends Component {
                 className="search-input-style"
                 value={searchInput}
               />
+              <button>
+                <BsSearch className="search-icon-style" />
+              </button>
             </div>
           </div>
           <div className="status-container">
             <h1 className="status-main-heading">BookShelves</h1>
             <div className="button-container">
               <button
-                className="status-button"
+                className="status-button active-button"
                 type="button"
                 id={bookshelvesList[0].id}
                 onClick={this.onStatusChange}
