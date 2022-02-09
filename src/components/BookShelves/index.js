@@ -52,6 +52,7 @@ class BookShelves extends Component {
 
   getBooks = async () => {
     const {searchInput, shelf} = this.state
+    console.log(`shelf is:${shelf}`)
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
@@ -90,11 +91,11 @@ class BookShelves extends Component {
     }
   }
 
-  onStatusChange = value => {
+  onStatusChange = event => {
     console.log('button clicked')
-    console.log(value)
+    console.log(event.target.value)
     const {shelf} = this.state
-    this.setState({shelf: value}, this.getBooks)
+    this.setState({shelf: event.target.value}, this.getBooks)
   }
 
   renderBooksList = () => {
@@ -256,7 +257,7 @@ class BookShelves extends Component {
     const {apiStatus} = this.state
     const {shelf} = this.state
 
-    console.log(`bookshelvesList is: ${bookshelvesList}`)
+    //  console.log(`bookshelvesList is: ${bookshelvesList}`)
     console.log(shelf)
     switch (apiStatus) {
       case apiStatusConstants.success:
