@@ -1,9 +1,9 @@
-.status-button {
+.status-btn {
   width: 47px;
   height: 24px;
   margin-left: 24px;
   padding: 4px 8px;
-  font-family: Inter;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -13,9 +13,45 @@
   box-sizing: border-box;
   border-radius: 25px;
   background-color: #ffffff;
+  flex-grow: 1;
+}
+.shelf-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-.active-shelf-button {
+.active-status-btn {
   background-color: #0284c7;
   color: #f8fafc;
+}
+
+@media Screen and(min-width:768px) {
+  .shelf-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .status-btn {
+    padding: 0px;
+    margin-left: 5px;
+    margin-top: 0px;
+    border: 0px solid #ffffff;
+    border-radius: 0px;
+    background-color: #ffffff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+
+    color: #475569;
+
+    box-sizing: content-box;
+  }
+
+  .active-status-btn {
+    color: #0284c7;
+    text-decoration: underline;
+  }
 }

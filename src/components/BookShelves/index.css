@@ -1,3 +1,19 @@
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background-color: #e5e5e5;
+  height: 100vh;
+}
+
+.header-container {
+  height: 20vh;
+}
+.body-container {
+  background-color: #e5e5e5;
+}
 .bookshelf-header-desktop-view {
   display: none;
 }
@@ -10,12 +26,18 @@
 }
 
 .bookshelf-main-heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #334155;
 }
 
 .search-container {
   display: flex;
   justify-content: flex-start;
-  padding: 6px 16px;
+  padding: 6px 16px 0px 16px;
   width: 264px;
   height: 36px;
   background: #ffffff;
@@ -28,18 +50,26 @@
 }
 
 .search-input-style {
+  font-family: 'Inter';
+  font-style: normal;
+  display: flex;
+  align-items: center;
+
+  /* Light / blue-gray / 400 */
+
+  color: #94a3b8;
+
   flex: none;
   order: 0;
-  align-self: stretch;
   flex-grow: 0;
-  margin: 4px 0px;
 }
-
 .search-button {
   width: 52px;
   height: 34px;
   background: #edeff1;
   border-radius: 0px 3px 3px 0px;
+  order: 1;
+  margin-left: 0px;
 }
 
 .search-icon-style {
@@ -70,24 +100,51 @@
   flex-wrap: wrap;
 }
 
-.status-button {
-  width: 47px;
-  height: 24px;
-  margin-left: 24px;
-  padding: 4px 8px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  color: #0284c7;
-  border: 1px solid #0284c7;
-  box-sizing: border-box;
-  border-radius: 25px;
-  background-color: #ffffff;
-}
+@media Screen and (min-width: 768px) {
+  .header-container {
+    height: 10vh;
+  }
 
-.active-shelf-button {
-  background-color: #0284c7;
-  color: #f8fafc;
+  .body-container {
+    background-color: #e5e5e5;
+  }
+  .bookshelf-header-mobile-view {
+    display: none;
+  }
+  .bookshelf-header-desktop-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    order: 1;
+  }
+
+  .status-container {
+    order: 0px;
+    margin-left: 150px;
+    width: 256px;
+    height: 1176px;
+    background-color: #ffffff;
+  }
+
+  .status-main-heading {
+    width: 124px;
+    height: 32px;
+    margin-left: 32px;
+    margin-top: 32px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+
+    color: #334155;
+  }
+
+  .button-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
