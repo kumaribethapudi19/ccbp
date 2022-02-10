@@ -63,6 +63,7 @@
 }
 
 .button-container {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -86,7 +87,7 @@
   background-color: #ffffff;
 }
 
-.active-button {
+.active-shelf-button {
   background-color: #0284c7;
   color: #f8fafc;
 }

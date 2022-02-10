@@ -1,10 +1,9 @@
-import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
+import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
-import BooksSlick from '../BooksSlick'
 
 import './index.css'
 
@@ -40,7 +39,7 @@ const apiStatusConstants = {
 class BookShelves extends Component {
   state = {
     searchInput: '',
-    shelf: 'ALL',
+    activeShelf: bookshelvesList[0].id,
     booksList: [],
     apiStatus: apiStatusConstants.initial,
   }
@@ -51,8 +50,15 @@ class BookShelves extends Component {
   }
 
   getBooks = async () => {
-    const {searchInput, shelf} = this.state
+    const {searchInput, activeShelf} = this.state
+    const selectedShelf = bookshelvesList.filter(
+      each => each.id === activeShelf,
+    )
+    console.log(selectedShelf)
+    console.log(selectedShelf[0])
+    const shelf = selectedShelf[0].value
     console.log(`shelf is:${shelf}`)
+
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
@@ -94,13 +100,16 @@ class BookShelves extends Component {
   onStatusChange = event => {
     console.log('button clicked')
     console.log(event.target.value)
-    const {shelf} = this.state
-    this.setState({shelf: event.target.value}, this.getBooks)
+    const isActiveButton = event.target.isActive
+    console.log(isActiveButton)
+    const {activeShelf} = this.state
+    this.setState({activeShelf: event.target.id}, this.getBooks)
   }
 
   renderBooksList = () => {
-    const {booksList, searchInput} = this.state
-    const activeClass = this.renderActiveClass()
+    const {booksList, searchInput, activeShelf} = this.state
+
+    console.log(`activeShelf is:${activeShelf}`)
 
     return (
       <div className="home-page-container">
@@ -137,43 +146,48 @@ class BookShelves extends Component {
             <h1 className="status-main-heading">BookShelves</h1>
             <div className="button-container">
               <button
-                className="status-button active-button"
+                //  className={`status-button ${activeShelfBtnClassName}`}
                 type="button"
                 id={bookshelvesList[0].id}
                 onClick={this.onStatusChange}
                 value={bookshelvesList[0].value}
+                isActive={activeShelf === bookshelvesList[0].id}
               >
                 {bookshelvesList[0].label}
               </button>
               <button
-                className="status-button"
+                //  className={`status-button ${activeShelfBtnClassName}`}
                 type="button"
                 id={bookshelvesList[1].id}
                 onClick={this.onStatusChange}
                 value={bookshelvesList[1].value}
+                isActive={activeShelf === bookshelvesList[1].id}
               >
                 {bookshelvesList[1].label}
               </button>
               <button
-                className="status-button"
+                //  className={`status-button ${activeShelfBtnClassName}`}
                 type="button"
                 id={bookshelvesList[2].id}
                 onClick={this.onStatusChange}
                 value={bookshelvesList[2].value}
+                isActive={activeShelf === bookshelvesList[2].id}
               >
                 {bookshelvesList[2].label}
               </button>
               <button
-                className="status-button"
+                //  className={`status-button ${activeShelfBtnClassName}`}
                 type="button"
                 id={bookshelvesList[3].id}
                 onClick={this.onStatusChange}
                 value={bookshelvesList[3].value}
+                isActive={activeShelf === bookshelvesList[3].id}
               >
                 {bookshelvesList[3].label}
               </button>
             </div>
           </div>
+
           <div className="result-books-container">
             <h1>Result shelf books shown here</h1>
           </div>
@@ -194,6 +208,7 @@ class BookShelves extends Component {
 
   renderFailureView = () => {
     const {searchInput} = this.state
+
     return (
       <div className="home-page-container">
         <div className="header-container">
@@ -262,10 +277,10 @@ class BookShelves extends Component {
 
   render() {
     const {apiStatus} = this.state
-    const {shelf} = this.state
 
-    //  console.log(`bookshelvesList is: ${bookshelvesList}`)
-    console.log(shelf)
+    const {activeShelf} = this.state
+    console.log(`activeShelf id is:${activeShelf}`)
+
     switch (apiStatus) {
       case apiStatusConstants.success:
         return this.renderBooksList()
