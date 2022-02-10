@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
-
+import ShelfItem from '../ShelfItem'
 import './index.css'
 
 const bookshelvesList = [
@@ -97,13 +97,11 @@ class BookShelves extends Component {
     }
   }
 
-  onStatusChange = event => {
+  onStatusChange = shelfValue => {
     console.log('button clicked')
-    console.log(event.target.value)
-    const isActiveButton = event.target.isActive
-    console.log(isActiveButton)
+
     const {activeShelf} = this.state
-    this.setState({activeShelf: event.target.id}, this.getBooks)
+    this.setState({activeShelf: shelfValue}, this.getBooks)
   }
 
   renderBooksList = () => {
@@ -144,48 +142,16 @@ class BookShelves extends Component {
           </div>
           <div className="status-container">
             <h1 className="status-main-heading">BookShelves</h1>
-            <div className="button-container">
-              <button
-                //  className={`status-button ${activeShelfBtnClassName}`}
-                type="button"
-                id={bookshelvesList[0].id}
-                onClick={this.onStatusChange}
-                value={bookshelvesList[0].value}
-                isActive={activeShelf === bookshelvesList[0].id}
-              >
-                {bookshelvesList[0].label}
-              </button>
-              <button
-                //  className={`status-button ${activeShelfBtnClassName}`}
-                type="button"
-                id={bookshelvesList[1].id}
-                onClick={this.onStatusChange}
-                value={bookshelvesList[1].value}
-                isActive={activeShelf === bookshelvesList[1].id}
-              >
-                {bookshelvesList[1].label}
-              </button>
-              <button
-                //  className={`status-button ${activeShelfBtnClassName}`}
-                type="button"
-                id={bookshelvesList[2].id}
-                onClick={this.onStatusChange}
-                value={bookshelvesList[2].value}
-                isActive={activeShelf === bookshelvesList[2].id}
-              >
-                {bookshelvesList[2].label}
-              </button>
-              <button
-                //  className={`status-button ${activeShelfBtnClassName}`}
-                type="button"
-                id={bookshelvesList[3].id}
-                onClick={this.onStatusChange}
-                value={bookshelvesList[3].value}
-                isActive={activeShelf === bookshelvesList[3].id}
-              >
-                {bookshelvesList[3].label}
-              </button>
-            </div>
+            <ul className="button-container">
+              {bookshelvesList.map(each => (
+                <ShelfItem
+                  key={each.id}
+                  shelfDetails={each}
+                  onStatusChange={this.onStatusChange}
+                  isActive={activeShelf === each.id}
+                />
+              ))}
+            </ul>
           </div>
 
           <div className="result-books-container">
