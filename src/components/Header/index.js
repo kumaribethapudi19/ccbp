@@ -19,6 +19,10 @@ class Header extends Component {
     this.setState(prevState => ({isButtonClicked: !prevState.isButtonClicked}))
   }
 
+  closeMenu = () => {
+    this.setState({isButtonClicked: false})
+  }
+
   renderMenu = () => {
     console.log('render menu called')
     return (
@@ -36,7 +40,11 @@ class Header extends Component {
         >
           Logout
         </button>
-        <AiFillCloseCircle className="cross-icon-style" />
+
+        <AiFillCloseCircle
+          className="cross-icon-style"
+          onClick={this.closeMenu}
+        />
       </ul>
     )
   }

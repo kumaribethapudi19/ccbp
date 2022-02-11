@@ -5,6 +5,7 @@ import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import {BsSearch} from 'react-icons/bs'
 import Header from '../Header'
 import ShelfItem from '../ShelfItem'
+import BookItem from '../BookItem'
 import './index.css'
 
 const bookshelvesList = [
@@ -110,54 +111,61 @@ class BookShelves extends Component {
     console.log(`activeShelf is:${activeShelf}`)
 
     return (
-      <div className="home-page-container">
+      <div>
         <div className="header-container">
           <Header />
         </div>
         <div className="body-container">
-          <div className="bookshelf-header-desktop-view">
-            <h1 className="bookshelf-main-heading">All Books</h1>
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
-              />
-              <button className="search-button">
-                <BsSearch className="search-icon-style" />
-              </button>
-            </div>
-          </div>
-          <div className="bookshelf-header-mobile-view">
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
-              />
-              <button>
-                <BsSearch className="search-icon-style" />
-              </button>
-            </div>
-          </div>
-          <div className="status-container">
-            <h1 className="status-main-heading">BookShelves</h1>
-            <ul className="button-container">
-              {bookshelvesList.map(each => (
-                <ShelfItem
-                  key={each.id}
-                  shelfDetails={each}
-                  onStatusChange={this.onStatusChange}
-                  isActive={activeShelf === each.id}
+          <div className="bookshelves-display-container">
+            <div className="bookshelf-header-desktop-view">
+              <h1 className="bookshelf-main-heading">All Books</h1>
+              <div className="search-container">
+                <input
+                  type="search"
+                  className="search-input-style"
+                  value={searchInput}
+                  placeholder="Search"
                 />
-              ))}
-            </ul>
-          </div>
+                <button className="search-button">
+                  <BsSearch className="search-icon-style" />
+                </button>
+              </div>
+            </div>
+            <div className="bookshelf-header-mobile-view">
+              <div className="search-container">
+                <input
+                  type="search"
+                  className="search-input-style"
+                  value={searchInput}
+                  placeholder="Search"
+                />
+                <button>
+                  <BsSearch className="search-icon-style" />
+                </button>
+              </div>
+            </div>
+            <div className="status-container">
+              <h1 className="status-main-heading">BookShelves</h1>
+              <ul className="button-container">
+                {bookshelvesList.map(each => (
+                  <ShelfItem
+                    key={each.id}
+                    shelfDetails={each}
+                    onStatusChange={this.onStatusChange}
+                    isActive={activeShelf === each.id}
+                  />
+                ))}
+              </ul>
+            </div>
 
-          <div className="result-books-container">
-            <h1>Result shelf books shown here</h1>
+            <div className="result-books-container">
+              <ul className="books-display-container">
+                {booksList.map(eachBook => (
+                  <BookItem key={eachBook.id} bookItemDetails={eachBook} />
+                ))}
+              </ul>
+            </div>
           </div>
-
           <div className="footer-section">
             <div className="footer-icons-container">
               <FaGoogle className="icon-style" />
@@ -173,7 +181,7 @@ class BookShelves extends Component {
   }
 
   renderFailureView = () => {
-    const {searchInput} = this.state
+    const {searchInput, activeShelf} = this.state
 
     return (
       <div className="home-page-container">
@@ -181,54 +189,59 @@ class BookShelves extends Component {
           <Header />
         </div>
         <div className="body-container">
-          <div className="bookshelf-header-desktop-view">
-            <h1 className="bookshelf-main-heading">All Books</h1>
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
+          <div className="bookshelves-display-container">
+            <div className="bookshelf-header-desktop-view">
+              <h1 className="bookshelf-main-heading">All Books</h1>
+              <div className="search-container">
+                <input
+                  type="search"
+                  className="search-input-style"
+                  value={searchInput}
+                />
+                <button className="search-button">
+                  <BsSearch className="search-icon-style" />
+                </button>
+              </div>
+            </div>
+            <div className="bookshelf-header-mobile-view">
+              <div className="search-container">
+                <input
+                  type="search"
+                  className="search-input-style"
+                  value={searchInput}
+                />
+                <button>
+                  <BsSearch className="search-icon-style" />
+                </button>
+              </div>
+            </div>
+            <div className="status-container">
+              <h1 className="status-main-heading">BookShelves</h1>
+              <ul className="button-container">
+                {bookshelvesList.map(each => (
+                  <ShelfItem
+                    key={each.id}
+                    shelfDetails={each}
+                    onStatusChange={this.onStatusChange}
+                    isActive={activeShelf === each.id}
+                  />
+                ))}
+              </ul>
+            </div>
+
+            <div className="something-wrong-view-container">
+              <img
+                className="something-wrong-view"
+                src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
               />
-            </div>
-          </div>
-          <div className="bookshelf-header-mobile-view">
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
-              />
-            </div>
-          </div>
-          <div className="status-container">
-            <h1 className="status-main-heading">BookShelves</h1>
-            <div className="button-container">
-              <button className="status-button" type="button">
-                All
-              </button>
-              <button className="status-button" type="button">
-                Read
-              </button>
-              <button className="status-button" type="button">
-                Currently Reading
-              </button>
-              <button className="status-button" type="button">
-                Want To Read
+              <h1 className="something-wrong-heading">
+                {' '}
+                Something went wrong, Please try again.{' '}
+              </h1>
+              <button className="something-wrong-try-again-button">
+                Try Again
               </button>
             </div>
-          </div>
-          <div className="something-wrong-view-container">
-            <img
-              className="something-wrong-view"
-              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-            />
-            <h1 className="something-wrong-heading">
-              {' '}
-              Something went wrong, Please try again.{' '}
-            </h1>
-            <button className="something-wrong-try-again-button">
-              Try Again
-            </button>
           </div>
         </div>
       </div>
