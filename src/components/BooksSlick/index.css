@@ -1,10 +1,6 @@
 .slider-container {
   background-color: #ffffff;
-
-  width: 80%;
-
-  max-width: 1100px;
-  margin-top: 10px;
+  padding: 15px;
 }
 
 .slick-prev:before,
@@ -17,45 +13,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 12px;
 }
 
-.pic-style {
-  margin: 10px;
-  height: 100px;
-  width: 100px;
+.top-rated-book-pic-style {
+  width: 146px;
+  height: 99px;
+
+  border-radius: 2px;
 }
 
-.title-style {
+.top-rated-book-title-style {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-height: 16px;
-  /* identical to box height, or 133% */
 
+  /* identical to box height, or 133% */
+  height: 32px;
+  width: 127px;
   text-align: center;
 
   /* Light / blue-gray / 700 */
 
   color: #334155;
-
-  height: 16px;
-  width: 64px;
-  margin-left: 69px;
 }
 
-.name-style {
-  width: 67px;
-  height: 12px;
-  margin-left: 67px;
+.top-rated-book-name-style {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 12px;
-  /* identical to box height, or 114% */
-
   text-align: center;
+  height: 16px;
+  width: 93px;
+
+  border-radius: nullpx;
 
   /* Light / blue-gray / 600 */
 
@@ -63,19 +56,29 @@
 }
 
 @media Screen and (min-width: 768px) {
-  .pic-style {
-    width: 300px;
-    height: 224px;
+  .slider-container {
+    background-color: #ffffff;
 
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  .top-rated-book-pic-style {
+    width: 300px;
+    height: 200px;
+    margin: 0px 10px;
     border-radius: 4px;
   }
-  .title-style {
+  .top-rated-book-title-style {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
-    line-height: 32px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     /* identical to box height, or 133% */
+    height: 32px;
+    width: 127px;
 
     text-align: center;
 
@@ -84,14 +87,15 @@
     color: #334155;
   }
 
-  .name-style {
+  .top-rated-book-name-style {
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     /* identical to box height, or 114% */
-
+    margin-top: 0px;
+    margin-bottom: 0px;
     text-align: center;
 
     /* Light / blue-gray / 600 */

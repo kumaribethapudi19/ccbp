@@ -85,7 +85,7 @@ class BookDetails extends Component {
       title,
     } = bookData
     return (
-      <div className="home-page-container">
+      <div>
         <div className="header-container">
           <Header />
         </div>
