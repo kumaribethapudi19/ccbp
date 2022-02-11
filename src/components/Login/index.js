@@ -100,7 +100,7 @@ class Login extends Component {
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911379/BookHub/login_page_hjiqng.png"
           className="login-website-mobile-image"
-          alt="website logo"
+          alt="website login"
         />
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911380/BookHub/login-desktop-img_qr6ncp.png"
@@ -110,13 +110,13 @@ class Login extends Component {
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
           className="login-website-logo-mobile-image"
-          alt="website logo"
+          alt="login website logo"
         />
         <form className="form-container" onSubmit={this.submitForm}>
           <img
             src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
             className="login-website-logo-desktop-image"
-            alt="website logo"
+            alt="login website logo"
           />
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>

@@ -69,12 +69,15 @@ class Home extends Component {
 
   onClickFindBooks = () => {
     console.log('Find Books Clicked')
+    console.log(this.props)
+    const {history} = this.props
+    history.push('/shelves')
   }
 
   renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
     return (
-      <div className="home-page-container">
+      <div>
         <div className="header-container">
           <Header />
         </div>
