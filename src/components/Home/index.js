@@ -152,9 +152,9 @@ class Home extends Component {
             Find Books
           </button>
         </div>
-        <div className="books-display-card">
-          <div className="books-display-card-header">
-            <h1 className="display-card-heading">
+        <div className="books-display-failure-card">
+          <div className="books-display-failure-card-header">
+            <h1 className="display-failure-card-heading">
               Top Rated Books
               <span>
                 <button

@@ -59,6 +59,7 @@ class BookShelves extends Component {
     console.log(selectedShelf[0])
     const shelf = selectedShelf[0].value
     console.log(`shelf is:${shelf}`)
+    console.log(`searchInput Value is:${searchInput}`)
 
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
@@ -98,11 +99,25 @@ class BookShelves extends Component {
     }
   }
 
+  changeInSearch = searchValue => {
+    this.setState({searchInput: searchValue}, this.getBooks)
+  }
+
   onStatusChange = shelfValue => {
     console.log('button clicked')
 
     const {activeShelf} = this.state
     this.setState({activeShelf: shelfValue}, this.getBooks)
+  }
+
+  onClickOfSearchButton = () => {
+    const {searchInput} = this.state
+    this.changeInSearch(searchInput)
+  }
+
+  onChangeOfSearchInput = event => {
+    const searchValue = event.target.value
+    this.changeInSearch(searchValue)
   }
 
   renderBooksList = () => {
@@ -125,8 +140,12 @@ class BookShelves extends Component {
                   className="search-input-style"
                   value={searchInput}
                   placeholder="Search"
+                  onChange={this.onChangeOfSearchInput}
                 />
-                <button className="search-button">
+                <button
+                  className="search-button"
+                  onClick={this.onClickOfSearchButton}
+                >
                   <BsSearch className="search-icon-style" />
                 </button>
               </div>
