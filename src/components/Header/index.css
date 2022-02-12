@@ -9,7 +9,7 @@
   border: 2px solid #ffffff;
 }
 
-.nav-content {
+.nav-bar-large-container {
   display: none;
 }
 
@@ -94,9 +94,11 @@
 
 @media Screen and (min-width: 768px) {
   .nav-header {
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-style: none;
   }
-  .nav-content {
+  .nav-bar-large-container {
     display: block;
     display: flex;
     flex-direction: row;
@@ -116,8 +118,7 @@
     width: 18%;
     height: 75%;
 
-    margin-left: 150px;
-    align-self: flex-end;
+    width:165px;
   }
   .nav-menu {
     list-style-type: none;

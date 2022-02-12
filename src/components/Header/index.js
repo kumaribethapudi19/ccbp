@@ -55,7 +55,7 @@ class Header extends Component {
     return (
       <>
         <nav className="nav-header">
-          <div className="nav-content">
+          <div className="nav-bar-large-container">
             <Link to="/">
               <img
                 className="website-logo"
@@ -65,10 +65,10 @@ class Header extends Component {
             </Link>
             <ul className="nav-menu">
               <Link to="/" className="nav-link">
-                <li>Home</li>
+                <li className="nav-menu-item">Home</li>
               </Link>
               <Link to="/shelves" className="nav-link">
-                <li>BookShelves</li>
+                <li className="nav-menu-item">BookShelves</li>
               </Link>
               <button
                 type="button"
