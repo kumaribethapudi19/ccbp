@@ -33,9 +33,9 @@ class Home extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const options = {
-      headers: {
+      /*  headers: {
         Authorization: `Bearer ${jwtToken}`,
-      },
+      },  */
       method: 'GET',
     }
     console.log('After fetching get the response')
@@ -132,7 +132,7 @@ class Home extends Component {
   }
 
   renderFailureView = () => (
-    <div className="home-page-container">
+    <div>
       <div className="header-container">
         <Header />
       </div>
