@@ -58,6 +58,7 @@ class BookShelves extends Component {
     console.log(selectedShelf)
     console.log(selectedShelf[0])
     const shelf = selectedShelf[0].value
+
     console.log(`shelf is:${shelf}`)
     console.log(`searchInput Value is:${searchInput}`)
 
