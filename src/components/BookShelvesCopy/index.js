@@ -179,10 +179,27 @@ class BookShelvesCopy extends Component {
     )
   }
 
-  changeSearchInput = searchInput => this.setState({searchInput}, this.getBooks)
+  onStatusChange = shelfValue => {
+    console.log('button clicked')
 
-  onChangeSearchInput = event => {
-    this.changeSearchInput(event.target.value)
+    const {activeShelf} = this.state
+    this.setState({activeShelf: shelfValue}, this.getBooks)
+  }
+
+  changeInSearch = searchValue => {
+    this.setState({searchInput: searchValue}, this.getBooks)
+  }
+
+  onClickOfSearchButton = event => {
+    const {searchInput} = this.state
+    if (event.key === 'Enter') {
+      this.changeInSearch(searchInput)
+    }
+  }
+
+  onChangeOfSearchInput = event => {
+    const searchValue = event.target.value
+    this.changeInSearch(searchValue)
   }
 
   renderBooksListView = () => {
@@ -200,12 +217,12 @@ class BookShelvesCopy extends Component {
                 className="search-input-style"
                 value={searchInput}
                 placeholder="Search"
-                onChange={this.onChangeSearchInput}
+                onChange={this.onChangeOfSearchInput}
               />
               <button>
                 <BsSearch
                   className="search-icon-style"
-                  onEnter={this.changeSearchInput}
+                  onEnter={this.onClickOfSearchButton}
                 />
               </button>
             </div>

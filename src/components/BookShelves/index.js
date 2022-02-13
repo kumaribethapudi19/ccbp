@@ -111,9 +111,11 @@ class BookShelves extends Component {
     this.setState({activeShelf: shelfValue}, this.getBooks)
   }
 
-  onClickOfSearchButton = () => {
+  onClickOfSearchButton = event => {
     const {searchInput} = this.state
-    this.changeInSearch(searchInput)
+    if (event.key === 'Enter') {
+      this.changeInSearch(searchInput)
+    }
   }
 
   onChangeOfSearchInput = event => {
@@ -145,7 +147,7 @@ class BookShelves extends Component {
                 />
                 <button
                   className="search-button"
-                  onClick={this.onClickOfSearchButton}
+                  onEnter={this.onClickOfSearchButton}
                 >
                   <BsSearch className="search-icon-style" />
                 </button>
