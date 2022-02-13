@@ -63,6 +63,10 @@ class BookShelvesCopy extends Component {
 
   getBooks = async () => {
     const {searchInput, activeShelf} = this.state
+    const {location} = this.props
+    const {search} = location
+
+    this.setState({searchInput: search})
 
     const shelf = this.getShelf()
     console.log(`shelf is:${shelf}`)
@@ -116,17 +120,31 @@ class BookShelvesCopy extends Component {
     </div>
   )
 
+  changeInSearch = searchValue => {
+    this.setState({searchInput: searchValue}, this.getBooks)
+  }
+
+  onClickOfSearchButton = event => {
+    const {searchInput} = this.state
+    if (event.key === 'Enter') {
+      this.changeInSearch(searchInput)
+    }
+  }
+
+  onChangeOfSearchInput = event => {
+    const searchValue = event.target.value
+    this.changeInSearch(searchValue)
+  }
+
   renderBooksList = () => {
-    const {booksList, activeShelf, searchInput} = this.state
+    const {booksList} = this.state
 
     const shouldShowBooksList = booksList.length > 0
 
     return shouldShowBooksList ? (
       <div className="status-books-container">
         <BooksHeader
-          searchInput={searchInput}
-          changeSearchInput={this.changeSearchInput}
-          activeShelf={activeShelf}
+          changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
         />
         <ul className="books-list">
@@ -138,9 +156,7 @@ class BookShelvesCopy extends Component {
     ) : (
       <div className="status-books-container">
         <BooksHeader
-          searchInput={searchInput}
-          changeSearchInput={this.changeSearchInput}
-          activeShelf={activeShelf}
+          changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
         />
         <div className="something-wrong-view-container">
@@ -183,23 +199,8 @@ class BookShelvesCopy extends Component {
     console.log('button clicked')
 
     const {activeShelf} = this.state
+
     this.setState({activeShelf: shelfValue}, this.getBooks)
-  }
-
-  changeInSearch = searchValue => {
-    this.setState({searchInput: searchValue}, this.getBooks)
-  }
-
-  onClickOfSearchButton = event => {
-    const {searchInput} = this.state
-    if (event.key === 'Enter') {
-      this.changeInSearch(searchInput)
-    }
-  }
-
-  onChangeOfSearchInput = event => {
-    const searchValue = event.target.value
-    this.changeInSearch(searchValue)
   }
 
   renderBooksListView = () => {
@@ -272,6 +273,7 @@ class BookShelvesCopy extends Component {
 
   render() {
     const {apiStatus} = this.state
+    console.log(this.props)
 
     const {activeShelf} = this.state
     console.log(`activeShelf id is:${activeShelf}`)

@@ -1,3 +1,4 @@
+import {withRouter} from 'react-router-dom'
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 
@@ -7,11 +8,15 @@ class BooksHeader extends Component {
   state = {searchInput: ''}
 
   onChangeOfSearchInputValue = event => {
-    const {changeSearchInput, selectedShelfName} = this.props
-    this.setState(
-      {searchInput: event.target.value},
-      changeSearchInput(event.target.value),
-    )
+    const {changeInSearch, selectedShelfName} = this.props
+    const searchValue = event.target.value
+
+    if (event.key === 'Enter') {
+      this.setState(
+        {searchInput: searchValue},
+        changeInSearch(event.target.value),
+      )
+    }
   }
 
   getShelfName = () => {
@@ -20,8 +25,10 @@ class BooksHeader extends Component {
   }
 
   render() {
-    const {changeSearchInput, getShelf} = this.props
+    const {changeInSearch, getShelf} = this.props
     const {searchInput} = this.state
+    console.log(`searchInput:${searchInput}`)
+
     const selectedShelfName = this.getShelfName()
     console.log(`selected SHELF NAME:${selectedShelfName}`)
     return (
@@ -33,7 +40,7 @@ class BooksHeader extends Component {
             className="search-input-style"
             value={searchInput}
             placeholder="Search"
-            onEnter={this.onChangeOfSearchInputValue}
+            onChange={this.onChangeOfSearchInputValue}
           />
           <button>
             <BsSearch
@@ -47,4 +54,4 @@ class BooksHeader extends Component {
   }
 }
 
-export default BooksHeader
+export default withRouter(BooksHeader)
