@@ -95,8 +95,12 @@ class BookShelvesCopy extends Component {
         coverPic: book.cover_pic,
         readStatus: book.read_status,
       }))
+
+      const searchUpdatedData = updatedData.filter(each =>
+        each.title.includes(searchInput),
+      )
       this.setState({
-        booksList: updatedData,
+        booksList: searchUpdatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -175,6 +179,12 @@ class BookShelvesCopy extends Component {
     )
   }
 
+  changeSearchInput = searchInput => this.setState({searchInput}, this.getBooks)
+
+  onChangeSearchInput = event => {
+    this.changeSearchInput(event.target.value)
+  }
+
   renderBooksListView = () => {
     const {searchInput, booksList, activeShelf} = this.state
     return (
@@ -190,9 +200,13 @@ class BookShelvesCopy extends Component {
                 className="search-input-style"
                 value={searchInput}
                 placeholder="Search"
+                onChange={this.onChangeSearchInput}
               />
               <button>
-                <BsSearch className="search-icon-style" />
+                <BsSearch
+                  className="search-icon-style"
+                  onEnter={this.changeSearchInput}
+                />
               </button>
             </div>
 

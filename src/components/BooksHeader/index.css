@@ -1,0 +1,8 @@
+.books-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-container {
+  margin-left: 450px;
+}
