@@ -3,25 +3,32 @@ import {BsSearch} from 'react-icons/bs'
 import './index.css'
 
 const BooksHeader = props => {
-  const {changeInSearch, getShelf, searchInput, onChangeOfSearchInput} = props
+  const {
+    // changeInSearch,
+    getShelf,
+    searchInput,
+    // onChangeOfSearchInput,
+    changeSearchInput,
+    enterSearchInput,
+  } = props
+
+  console.log(`HEADER FUNCTION CALLED`)
   console.log(searchInput)
+  console.log(getShelf())
 
-  const onChangeOfSearchInputValue = event => {
-    console.log('search Input value changed')
-    console.log(event)
-
-    // onChangeOfSearchInput(event)
-  }
-
-  const onEnterSearchInputValue = event => {
+  const onEnterSearchInput = event => {
     if (event.key === 'Enter') {
-      changeInSearch(event.target.value)
+      enterSearchInput()
     }
   }
 
-  const getShelfName = () => {
-    getShelf()
+  const onClickSearchInputButton = event => enterSearchInput()
+
+  const onChangeSearchInput = event => {
+    changeSearchInput(event.target.value)
   }
+
+  const getShelfName = () => getShelf()
 
   console.log(`searchInput:${searchInput}`)
 
@@ -37,12 +44,13 @@ const BooksHeader = props => {
           className="search-input-style"
           value={searchInput}
           placeholder="Search"
-          onChange={onChangeOfSearchInputValue()}
+          onChange={onChangeSearchInput}
+          onKeyDown={onEnterSearchInput}
         />
         <button>
           <BsSearch
             className="search-icon-style"
-            onEnter={onEnterSearchInputValue()}
+            onClick={onClickSearchInputButton}
           />
         </button>
       </div>

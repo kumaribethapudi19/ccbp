@@ -56,17 +56,13 @@ class BookShelvesCopy extends Component {
     const selectedShelf = bookshelvesList.filter(
       each => each.id === activeShelf,
     )
-    console.log(selectedShelf)
+    console.log(`selectedShelf NAME:${selectedShelf}`)
     console.log(selectedShelf[0])
     return selectedShelf[0].value
   }
 
   getBooks = async () => {
     const {searchInput, activeShelf} = this.state
-    const {location} = this.props
-    const {search} = location
-
-    this.setState({searchInput: search})
 
     const shelf = this.getShelf()
     console.log(`shelf is:${shelf}`)
@@ -78,6 +74,7 @@ class BookShelvesCopy extends Component {
     console.log('get the books list')
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/book-hub/books?shelf=${shelf}&search=${searchInput}`
+    console.log(`url:${url}`)
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -100,11 +97,8 @@ class BookShelvesCopy extends Component {
         readStatus: book.read_status,
       }))
 
-      const searchUpdatedData = updatedData.filter(each =>
-        each.title.includes(searchInput),
-      )
       this.setState({
-        booksList: searchUpdatedData,
+        booksList: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -120,20 +114,20 @@ class BookShelvesCopy extends Component {
     </div>
   )
 
-  changeInSearch = searchValue => {
-    this.setState({searchInput: searchValue}, this.getBooks)
+  onStatusChange = shelfValue => {
+    console.log('button clicked')
+
+    const {activeShelf} = this.state
+
+    this.setState({activeShelf: shelfValue}, this.getBooks)
   }
 
-  onClickOfSearchButton = event => {
-    const {searchInput} = this.state
-    if (event.key === 'Enter') {
-      this.changeInSearch(searchInput)
-    }
+  enterSearchInput = () => {
+    this.getBooks()
   }
 
-  onChangeOfSearchInput = event => {
-    const searchValue = event.target.value
-    this.changeInSearch(searchValue)
+  changeSearchInput = searchInput => {
+    this.setState({searchInput})
   }
 
   renderBooksList = () => {
@@ -145,9 +139,9 @@ class BookShelvesCopy extends Component {
       <div className="status-books-container">
         <BooksHeader
           searchInput={searchInput}
-          onChangeOfSearchInput={this.onChangeOfSearchInput}
-          changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
+          changeSearchInput={this.changeSearchInput}
+          enterSearchInput={this.enterSearchInput}
         />
         <ul className="books-list">
           {booksList.map(eachBook => (
@@ -159,9 +153,9 @@ class BookShelvesCopy extends Component {
       <div className="status-books-container">
         <BooksHeader
           searchInput={searchInput}
-          onChangeOfSearchInput={this.onChangeOfSearchInput}
-          changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
+          changeSearchInput={this.changeSearchInput}
+          enterSearchInput={this.enterSearchInput}
         />
         <div className="something-wrong-view-container">
           <img
@@ -197,14 +191,6 @@ class BookShelvesCopy extends Component {
         </ul>
       </>
     )
-  }
-
-  onStatusChange = shelfValue => {
-    console.log('button clicked')
-
-    const {activeShelf} = this.state
-
-    this.setState({activeShelf: shelfValue}, this.getBooks)
   }
 
   renderBooksListView = () => {
