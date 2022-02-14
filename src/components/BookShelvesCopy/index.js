@@ -137,13 +137,15 @@ class BookShelvesCopy extends Component {
   }
 
   renderBooksList = () => {
-    const {booksList} = this.state
+    const {booksList, searchInput} = this.state
 
     const shouldShowBooksList = booksList.length > 0
 
     return shouldShowBooksList ? (
       <div className="status-books-container">
         <BooksHeader
+          searchInput={searchInput}
+          onChangeOfSearchInput={this.onChangeOfSearchInput}
           changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
         />
@@ -156,6 +158,8 @@ class BookShelvesCopy extends Component {
     ) : (
       <div className="status-books-container">
         <BooksHeader
+          searchInput={searchInput}
+          onChangeOfSearchInput={this.onChangeOfSearchInput}
           changeInSearch={this.changeInSearch}
           getShelf={this.getShelf}
         />

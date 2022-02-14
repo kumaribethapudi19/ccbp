@@ -1,57 +1,53 @@
-import {withRouter} from 'react-router-dom'
-import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 
 import './index.css'
 
-class BooksHeader extends Component {
-  state = {searchInput: ''}
+const BooksHeader = props => {
+  const {changeInSearch, getShelf, searchInput, onChangeOfSearchInput} = props
+  console.log(searchInput)
 
-  onChangeOfSearchInputValue = event => {
-    const {changeInSearch, selectedShelfName} = this.props
-    const searchValue = event.target.value
+  const onChangeOfSearchInputValue = event => {
+    console.log('search Input value changed')
+    console.log(event)
 
+    // onChangeOfSearchInput(event)
+  }
+
+  const onEnterSearchInputValue = event => {
     if (event.key === 'Enter') {
-      this.setState(
-        {searchInput: searchValue},
-        changeInSearch(event.target.value),
-      )
+      changeInSearch(event.target.value)
     }
   }
 
-  getShelfName = () => {
-    const {getShelf} = this.props
-    return getShelf()
+  const getShelfName = () => {
+    getShelf()
   }
 
-  render() {
-    const {changeInSearch, getShelf} = this.props
-    const {searchInput} = this.state
-    console.log(`searchInput:${searchInput}`)
+  console.log(`searchInput:${searchInput}`)
 
-    const selectedShelfName = this.getShelfName()
-    console.log(`selected SHELF NAME:${selectedShelfName}`)
-    return (
-      <div className="books-header">
-        <h1 className="books-list-heading">{`${selectedShelfName} Books`}</h1>
-        <div className="search-container">
-          <input
-            type="search"
-            className="search-input-style"
-            value={searchInput}
-            placeholder="Search"
-            onChange={this.onChangeOfSearchInputValue}
+  const selectedShelfName = getShelfName()
+  console.log(`selected SHELF NAME:${selectedShelfName}`)
+
+  return (
+    <div className="books-header">
+      <h1 className="books-list-heading">{`${selectedShelfName} Books`}</h1>
+      <div className="search-container">
+        <input
+          type="search"
+          className="search-input-style"
+          value={searchInput}
+          placeholder="Search"
+          onChange={onChangeOfSearchInputValue()}
+        />
+        <button>
+          <BsSearch
+            className="search-icon-style"
+            onEnter={onEnterSearchInputValue()}
           />
-          <button>
-            <BsSearch
-              className="search-icon-style"
-              onEnter={this.onChangeOfSearchInputValue}
-            />
-          </button>
-        </div>
+        </button>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
-export default withRouter(BooksHeader)
+export default BooksHeader
