@@ -81,6 +81,11 @@ class Home extends Component {
     history.push('/shelves')
   }
 
+  onTryAgainButtonClicked = () => {
+    console.log('Try Again Button clicked')
+    this.getTopRatedBooks()
+  }
+
   renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
 
@@ -97,7 +102,12 @@ class Home extends Component {
         <h1 className="something-wrong-heading">
           Something went wrong, Please try again.
         </h1>
-        <button className="something-wrong-try-again-button">Try Again</button>
+        <button
+          className="something-wrong-try-again-button"
+          onClick={this.onTryAgainButtonClicked}
+        >
+          Try Again
+        </button>
       </div>
     )
   }
@@ -200,6 +210,21 @@ class Home extends Component {
                 </button>
               </span>
             </h1>
+          </div>
+          <div className="something-wrong-view-container">
+            <img
+              className="something-wrong-view"
+              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+            />
+            <h1 className="something-wrong-heading">
+              Something went wrong, Please try again.
+            </h1>
+            <button
+              className="something-wrong-try-again-button"
+              onClick={this.onTryAgainButtonClicked}
+            >
+              Try Again
+            </button>
           </div>
         </div>
 
