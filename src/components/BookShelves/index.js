@@ -108,6 +108,11 @@ class BookShelves extends Component {
     }
   }
 
+  onTryAgainButtonClicked = () => {
+    console.log('Try Again Button clicked')
+    this.getBooks()
+  }
+
   renderLoadingView = () => (
     <div className="bookhub-loader-container">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
@@ -166,7 +171,10 @@ class BookShelves extends Component {
             {' '}
             Something went wrong, Please try again.{' '}
           </h1>
-          <button className="something-wrong-try-again-button">
+          <button
+            className="something-wrong-try-again-button"
+            onClick={this.onTryAgainButtonClicked}
+          >
             Try Again
           </button>
         </div>
@@ -237,6 +245,93 @@ class BookShelves extends Component {
                   <BookItem key={eachBook.id} bookItemDetails={eachBook} />
                 ))}
               </ul>
+            </div>
+          </div>
+
+          <div className="desktop-view">
+            <div className="status-container">{this.renderShelves()}</div>
+            <div className="books-and-header-container">
+              {this.renderBooksList()}
+            </div>
+          </div>
+
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <h3 className="footer-note">Contact us</h3>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  renderFailureView = () => {
+    const {searchInput, booksList, activeShelf} = this.state
+    return (
+      <div>
+        <div className="header-container">
+          <Header />
+        </div>
+        <div className="body-container">
+          <div className="mobile-view">
+            <div className="search-container">
+              <input
+                type="search"
+                className="search-input-style"
+                value={searchInput}
+                placeholder="Search"
+                onChange={this.onChangeOfSearchInput}
+              />
+              <button>
+                <BsSearch
+                  className="search-icon-style"
+                  onEnter={this.onClickOfSearchButton}
+                />
+              </button>
+            </div>
+
+            <div className="status-container">
+              <h1 className="status-main-heading">BookShelves</h1>
+              <ul className="button-container">
+                {bookshelvesList.map(each => (
+                  <ShelfItem
+                    key={each.id}
+                    shelfDetails={each}
+                    onStatusChange={this.onStatusChange}
+                    isActive={activeShelf === each.id}
+                  />
+                ))}
+              </ul>
+            </div>
+            <div className="books-container">
+              {booksList.length > 0 ? (
+                <ul className="books-display-container">
+                  {booksList.map(eachBook => (
+                    <BookItem key={eachBook.id} bookItemDetails={eachBook} />
+                  ))}
+                </ul>
+              ) : (
+                <div className="something-wrong-view-container">
+                  <img
+                    className="something-wrong-view"
+                    src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+                  />
+                  <h1 className="something-wrong-heading">
+                    {' '}
+                    Something went wrong, Please try again.{' '}
+                  </h1>
+                  <button
+                    className="something-wrong-try-again-button"
+                    onClick={this.onTryAgainButtonClicked}
+                  >
+                    Try Again
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 

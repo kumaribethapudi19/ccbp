@@ -14,7 +14,7 @@ const ShelfItem = props => {
     <li className="shelf-item-container ">
       <button
         type="button"
-        className={`status-btn ${activeStatusBtnClassName}`}
+        className={`status-button ${activeStatusBtnClassName}`}
         onClick={onClickStatusItem}
         value={value}
         id={id}

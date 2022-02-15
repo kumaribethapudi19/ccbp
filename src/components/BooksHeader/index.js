@@ -47,7 +47,7 @@ const BooksHeader = props => {
           onChange={onChangeSearchInput}
           onKeyDown={onEnterSearchInput}
         />
-        <button>
+        <button className="search-button">
           <BsSearch
             className="search-icon-style"
             onClick={onClickSearchInputButton}
