@@ -97,8 +97,12 @@ class BookShelves extends Component {
         readStatus: book.read_status,
       }))
 
+      const searchedData = updatedData.filter(each =>
+        each.title.toLowerCase().includes(searchInput.toLowerCase()),
+      )
+
       this.setState({
-        booksList: updatedData,
+        booksList: searchedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {

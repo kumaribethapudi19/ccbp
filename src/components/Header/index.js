@@ -30,7 +30,7 @@ class Header extends Component {
         <Link to="/">
           <li className="nav-menu-item-mobile">Home</li>
         </Link>
-        <Link to="/shelves">
+        <Link to="/shelf">
           <li className="nav-menu-item-mobile">BookShelves</li>
         </Link>
         <button
@@ -67,7 +67,7 @@ class Header extends Component {
               <Link to="/" className="nav-link">
                 <li className="nav-menu-item">Home</li>
               </Link>
-              <Link to="/shelves" className="nav-link">
+              <Link to="/shelf" className="nav-link">
                 <li className="nav-menu-item">BookShelves</li>
               </Link>
               <button
