@@ -244,7 +244,10 @@ class BookShelves extends Component {
               </ul>
             </div>
             <div className="books-container">
-              <ul className="books-display-container">
+              <ul
+                className="books-display-container"
+                testid="booksDisplayContainer"
+              >
                 {booksList.map(eachBook => (
                   <BookItem key={eachBook.id} bookItemDetails={eachBook} />
                 ))}
@@ -359,7 +362,7 @@ class BookShelves extends Component {
               <FaInstagram className="icon-style" />
               <FaYoutube className="icon-style" />
             </div>
-            <h3 className="footer-note">Contact us</h3>
+            <p className="footer-note">Contact us</p>
           </div>
         </div>
       </div>

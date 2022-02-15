@@ -21,11 +21,25 @@ const BooksSlick = props => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 1048,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1226,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
     ],
   }
 
   return (
-    <div className="slider-container">
+    <ul className="slider-container" testid="sliderContainer">
       <Slider {...settings1}>
         {booksList.map(each => {
           const {coverPic, title, authorName, id} = each
@@ -45,7 +59,7 @@ const BooksSlick = props => {
           )
         })}
       </Slider>
-    </div>
+    </ul>
   )
 }
 

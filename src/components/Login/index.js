@@ -110,7 +110,7 @@ class Login extends Component {
         <img
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
           className="login-website-logo-mobile-image"
-          alt="login website logo"
+          alt="website logo"
         />
         <form className="form-container" onSubmit={this.submitForm}>
           <img

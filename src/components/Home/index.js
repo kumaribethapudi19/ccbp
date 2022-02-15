@@ -114,7 +114,7 @@ class Home extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="bookhub-loader-container">
+    <div className="bookhub-loader-container" testid="loader">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -165,7 +165,7 @@ class Home extends Component {
             <FaInstagram className="icon-style" />
             <FaYoutube className="icon-style" />
           </div>
-          <h3 className="footer-note">Contact us</h3>
+          <p className="footer-note">Contact us</p>
         </div>
       </div>
     </div>
@@ -207,7 +207,10 @@ class Home extends Component {
               </span>
             </h1>
           </div>
-          <div className="something-wrong-view-container">
+          <div
+            className="something-wrong-view-container"
+            testid="somethingWrongViewContainer"
+          >
             <img
               alt="no books"
               className="something-wrong-view"
