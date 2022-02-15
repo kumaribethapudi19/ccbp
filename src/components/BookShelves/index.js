@@ -235,7 +235,7 @@ class BookShelves extends Component {
             </div>
 
             <div className="status-container">
-              <h1 className="status-main-heading">BookShelves</h1>
+              <h1 className="status-main-heading">Bookshelves</h1>
               <ul className="button-container">
                 {bookshelvesList.map(each => (
                   <ShelfItem
@@ -310,7 +310,7 @@ class BookShelves extends Component {
             </div>
 
             <div className="status-container">
-              <h1 className="status-main-heading">BookShelves</h1>
+              <h1 className="status-main-heading">Bookshelves</h1>
               <ul className="button-container">
                 {bookshelvesList.map(each => (
                   <ShelfItem
