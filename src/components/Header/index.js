@@ -89,6 +89,7 @@ class Header extends Component {
             </Link>
 
             <button
+              type="button"
               onClick={this.renderHamburgerMenu}
               className="hamburger-icon"
             >

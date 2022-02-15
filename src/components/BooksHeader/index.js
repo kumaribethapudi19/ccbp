@@ -22,7 +22,7 @@ const BooksHeader = props => {
     }
   }
 
-  const onClickSearchInputButton = event => enterSearchInput()
+  const onClickSearchInputButton = () => enterSearchInput()
 
   const onChangeSearchInput = event => {
     changeSearchInput(event.target.value)
@@ -47,7 +47,7 @@ const BooksHeader = props => {
           onChange={onChangeSearchInput}
           onKeyDown={onEnterSearchInput}
         />
-        <button className="search-button">
+        <button type="button" className="search-button" testid="searchButton">
           <BsSearch
             className="search-icon-style"
             onClick={onClickSearchInputButton}

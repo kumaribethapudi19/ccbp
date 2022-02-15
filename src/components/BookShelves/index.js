@@ -62,7 +62,7 @@ class BookShelves extends Component {
   }
 
   getBooks = async () => {
-    const {searchInput, activeShelf} = this.state
+    const {searchInput} = this.state
 
     const shelf = this.getShelf()
     console.log(`shelf is:${shelf}`)
@@ -114,15 +114,13 @@ class BookShelves extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="bookhub-loader-container">
+    <div className="bookhub-loader-container" testid="loader">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )
 
   onStatusChange = shelfValue => {
     console.log('button clicked')
-
-    const {activeShelf} = this.state
 
     this.setState({activeShelf: shelfValue}, this.getBooks)
   }
@@ -164,6 +162,7 @@ class BookShelves extends Component {
         />
         <div className="something-wrong-view-container">
           <img
+            alt="no books"
             className="something-wrong-view"
             src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
           />
@@ -172,6 +171,7 @@ class BookShelves extends Component {
             Something went wrong, Please try again.{' '}
           </h1>
           <button
+            type="button"
             className="something-wrong-try-again-button"
             onClick={this.onTryAgainButtonClicked}
           >
@@ -218,7 +218,11 @@ class BookShelves extends Component {
                 placeholder="Search"
                 onChange={this.onChangeOfSearchInput}
               />
-              <button>
+              <button
+                type="button"
+                testid="searchButton"
+                className="search-button"
+              >
                 <BsSearch
                   className="search-icon-style"
                   onEnter={this.onClickOfSearchButton}
@@ -286,7 +290,11 @@ class BookShelves extends Component {
                 placeholder="Search"
                 onChange={this.onChangeOfSearchInput}
               />
-              <button>
+              <button
+                type="button"
+                testid="searchButton"
+                className="search-button"
+              >
                 <BsSearch
                   className="search-icon-style"
                   onEnter={this.onClickOfSearchButton}
@@ -317,6 +325,7 @@ class BookShelves extends Component {
               ) : (
                 <div className="something-wrong-view-container">
                   <img
+                    alt="no books"
                     className="something-wrong-view"
                     src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
                   />
@@ -325,6 +334,7 @@ class BookShelves extends Component {
                     Something went wrong, Please try again.{' '}
                   </h1>
                   <button
+                    type="button"
                     className="something-wrong-try-again-button"
                     onClick={this.onTryAgainButtonClicked}
                   >

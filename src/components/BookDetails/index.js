@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import {BsFillStarFill} from 'react-icons/bs'
 import Header from '../Header'
-import BooksSlick from '../BooksSlick'
 
 import './index.css'
 
@@ -73,10 +72,11 @@ class BookDetails extends Component {
     }
   }
 
+  onTryAgainButtonClicked = () => this.getBookDetails()
+
   renderBookDetails = () => {
     const {bookData} = this.state
     const {
-      id,
       rating,
       coverPic,
       aboutAuthor,
@@ -135,6 +135,7 @@ class BookDetails extends Component {
       <div className="body-container">
         <div className="something-wrong-view-container">
           <img
+            alt="no books"
             className="something-wrong-view"
             src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
           />
@@ -142,7 +143,11 @@ class BookDetails extends Component {
             {' '}
             Something went wrong, Please try again.{' '}
           </h1>
-          <button className="something-wrong-try-again-button">
+          <button
+            type="button"
+            className="something-wrong-try-again-button"
+            onClick={this.onTryAgainButtonClicked}
+          >
             Try Again
           </button>
         </div>
@@ -151,7 +156,7 @@ class BookDetails extends Component {
   )
 
   renderLoadingView = () => (
-    <div className="bookhub-loader-container">
+    <div className="bookhub-loader-container" testid="loader">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )

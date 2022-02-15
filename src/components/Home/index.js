@@ -1,4 +1,3 @@
-import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
@@ -33,9 +32,9 @@ class Home extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const options = {
-      /* headers: {
+      headers: {
         Authorization: `Bearer ${jwtToken}`,
-      },   */
+      },
       method: 'GET',
     }
 
@@ -63,7 +62,7 @@ class Home extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="bookhub-loader-container">
+    <div className="bookhub-loader-container" testid="loader">
       <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -96,6 +95,7 @@ class Home extends Component {
     ) : (
       <div className="something-wrong-view-container">
         <img
+          alt="no books"
           className="something-wrong-view"
           src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
         />
@@ -103,6 +103,7 @@ class Home extends Component {
           Something went wrong, Please try again.
         </h1>
         <button
+          type="button"
           className="something-wrong-try-again-button"
           onClick={this.onTryAgainButtonClicked}
         >
@@ -118,62 +119,57 @@ class Home extends Component {
     </div>
   )
 
-  renderTopRatedBooksListView = () => {
-    const {topRatedBooksList} = this.state
-    return (
-      <div>
-        <div className="header-container">
-          <Header />
+  renderTopRatedBooksListView = () => (
+    <div>
+      <div className="header-container">
+        <Header />
+      </div>
+      <div className="body-container">
+        <div className="home-description-card">
+          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
+          <p className="home-page-description">
+            You are in the right place. Tell us what titles or genres you have
+            enjoyed in the past, and we will give you surprisingly insightful
+            recommendations.
+          </p>
+          <button
+            className="home-page-find-button"
+            type="button"
+            onClick={this.onClickFindBooks}
+          >
+            Find Books
+          </button>
         </div>
-        <div className="body-container">
-          <div className="home-description-card">
-            <h1 className="home-page-heading">
-              Find Your Next Favorite Books?
+        <div className="books-display-card">
+          <div className="books-display-card-header">
+            <h1 className="display-card-heading">
+              Top Rated Books
+              <span>
+                <button
+                  type="button"
+                  className="display-card-find-button"
+                  onClick={this.onClickFindBooks}
+                >
+                  Find Books
+                </button>
+              </span>
             </h1>
-            <p className="home-page-description">
-              You are in the right place. Tell us what titles or genres you have
-              enjoyed in the past, and we will give you surprisingly insightful
-              recommendations.
-            </p>
-            <button
-              className="home-page-find-button"
-              type="button"
-              onClick={this.onClickFindBooks}
-            >
-              Find Books
-            </button>
           </div>
-          <div className="books-display-card">
-            <div className="books-display-card-header">
-              <h1 className="display-card-heading">
-                Top Rated Books
-                <span>
-                  <button
-                    type="button"
-                    className="display-card-find-button"
-                    onClick={this.onClickFindBooks}
-                  >
-                    Find Books
-                  </button>
-                </span>
-              </h1>
-            </div>
-            {this.renderTopRatedBooksList()}
-          </div>
+          {this.renderTopRatedBooksList()}
+        </div>
 
-          <div className="footer-section">
-            <div className="footer-icons-container">
-              <FaGoogle className="icon-style" />
-              <FaTwitter className="icon-style" />
-              <FaInstagram className="icon-style" />
-              <FaYoutube className="icon-style" />
-            </div>
-            <h3 className="footer-note">Contact us</h3>
+        <div className="footer-section">
+          <div className="footer-icons-container">
+            <FaGoogle className="icon-style" />
+            <FaTwitter className="icon-style" />
+            <FaInstagram className="icon-style" />
+            <FaYoutube className="icon-style" />
           </div>
+          <h3 className="footer-note">Contact us</h3>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 
   renderFailureView = () => (
     <div>
@@ -213,6 +209,7 @@ class Home extends Component {
           </div>
           <div className="something-wrong-view-container">
             <img
+              alt="no books"
               className="something-wrong-view"
               src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
             />
@@ -220,6 +217,7 @@ class Home extends Component {
               Something went wrong, Please try again.
             </h1>
             <button
+              type="button"
               className="something-wrong-try-again-button"
               onClick={this.onTryAgainButtonClicked}
             >

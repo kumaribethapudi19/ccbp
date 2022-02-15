@@ -4,11 +4,11 @@ import './index.css'
 const BookItem = props => {
   console.log(`props came are: ${props}`)
   const {bookItemDetails} = props
-  const {id, title, rating, authorName, coverPic, readStatus} = bookItemDetails
+  const {title, rating, authorName, coverPic, readStatus} = bookItemDetails
 
   return (
     <li className="book-info-display">
-      <img src={coverPic} className="pic-style" />
+      <img src={coverPic} className="pic-style" alt={title} />
       <div className="book-info-details-card">
         <h1 className="title-heading">{title}</h1>
         <p className="para">{authorName}</p>
