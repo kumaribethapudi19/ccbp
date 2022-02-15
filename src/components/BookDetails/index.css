@@ -300,25 +300,19 @@
   }
 
   .something-wrong-view-container {
-    margin-left: 33.75%;
-    margin-right: 33.68%;
-    margin-top: 34.86%;
-    margin-bottom: 42.68%;
+    margin: 0px 240px 300px 240px;
   }
 
   .something-wrong-view {
     height: 230px;
     width: 469px;
-    margin-left: 486px;
+
     border-radius: 0px;
   }
 
   .something-wrong-heading {
-    margin-left: 33.68%;
-
     height: 48px;
     width: 469px;
-    margin-left: 485px;
 
     font-family: ' Inter';
     font-style: normal;

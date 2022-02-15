@@ -237,7 +237,7 @@
   flex-direction: column;
   align-items: center;
   background: #0284c7;
-  font-family: Inter;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -400,24 +400,21 @@
   }
 
   .something-wrong-view-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    margin: 0px 240px 300px 240px;
   }
 
   .something-wrong-view {
-    height: 170px;
-    width: 347px;
+    height: 230px;
+    width: 469px;
 
     border-radius: 0px;
   }
 
   .something-wrong-heading {
     height: 48px;
-    width: 100%;
+    width: 469px;
 
-    font-family: 'Inter';
+    font-family: ' Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -428,14 +425,24 @@
 
   .something-wrong-try-again-button {
     height: 48px;
-    width: 100%;
+    width: 112px;
     border-radius: 12px;
-    padding: 12px, 24px, 12px, 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #0284c7;
     flex: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    /* Light / base / white */
+
+    color: #ffffff;
     order: 0;
     flex-grow: 0;
     margin: 0px 0px;
