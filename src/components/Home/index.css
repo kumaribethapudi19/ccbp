@@ -286,7 +286,7 @@
   }
   .home-page-description {
     width: 80%;
-
+    height: 64px;
     margin-left: 100px;
 
     font-family: 'Inter';
@@ -307,9 +307,10 @@
 
   .books-display-card {
     width: 90%;
-    height: 424px;
+    height: 524px;
     margin-left: 100px;
     margin-bottom: 150px;
+    margin-right: 100px;
     background-color: #ffffff;
     padding: 25px;
 
@@ -399,24 +400,24 @@
   }
 
   .something-wrong-view-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .something-wrong-view {
     height: 170px;
     width: 347px;
-    margin-left: 447px;
-    margin-top: 110;
+
     border-radius: 0px;
   }
 
   .something-wrong-heading {
-    margin-left: 33.68%;
-
     height: 48px;
-    width: 469px;
-    margin-left: 485px;
+    width: 100%;
 
-    font-family: Inter;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -427,7 +428,7 @@
 
   .something-wrong-try-again-button {
     height: 48px;
-    width: 112px;
+    width: 100%;
     border-radius: 12px;
     padding: 12px, 24px, 12px, 24px;
     display: flex;
@@ -438,8 +439,5 @@
     order: 0;
     flex-grow: 0;
     margin: 0px 0px;
-  }
-  .search-container {
-    margin-left: auto;
   }
 }
