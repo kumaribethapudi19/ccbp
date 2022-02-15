@@ -33,11 +33,12 @@ class Home extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const options = {
-      headers: {
+      /* headers: {
         Authorization: `Bearer ${jwtToken}`,
-      },
+      },   */
       method: 'GET',
     }
+
     console.log('After fetching get the response')
     const response = await fetch(url, options)
     console.log(response)
@@ -61,6 +62,12 @@ class Home extends Component {
     }
   }
 
+  renderLoadingView = () => (
+    <div className="bookhub-loader-container">
+      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
   renderCarousal = () => {
     const {topRatedBooksList} = this.state
     console.log(topRatedBooksList)
@@ -75,6 +82,33 @@ class Home extends Component {
   }
 
   renderTopRatedBooksList = () => {
+    const {topRatedBooksList} = this.state
+
+    const shouldShowBooksList = topRatedBooksList.length > 0
+
+    return shouldShowBooksList ? (
+      <div className="slick-display-style">{this.renderCarousal()}</div>
+    ) : (
+      <div className="something-wrong-view-container">
+        <img
+          className="something-wrong-view"
+          src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+        />
+        <h1 className="something-wrong-heading">
+          Something went wrong, Please try again.
+        </h1>
+        <button className="something-wrong-try-again-button">Try Again</button>
+      </div>
+    )
+  }
+
+  renderLoadingView = () => (
+    <div className="bookhub-loader-container">
+      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  renderTopRatedBooksListView = () => {
     const {topRatedBooksList} = this.state
     return (
       <div>
@@ -114,9 +148,9 @@ class Home extends Component {
                 </span>
               </h1>
             </div>
-
-            <div className="slick-display-style">{this.renderCarousal()}</div>
+            {this.renderTopRatedBooksList()}
           </div>
+
           <div className="footer-section">
             <div className="footer-icons-container">
               <FaGoogle className="icon-style" />
@@ -152,9 +186,9 @@ class Home extends Component {
             Find Books
           </button>
         </div>
-        <div className="books-display-failure-card">
-          <div className="books-display-failure-card-header">
-            <h1 className="display-failure-card-heading">
+        <div className="books-display-card">
+          <div className="books-display-card-header">
+            <h1 className="display-card-heading">
               Top Rated Books
               <span>
                 <button
@@ -167,35 +201,27 @@ class Home extends Component {
               </span>
             </h1>
           </div>
-          <div className="something-wrong-view-container">
-            <img
-              className="something-wrong-view"
-              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-            />
-            <h1 className="something-wrong-heading">
-              {' '}
-              Something went wrong, Please try again.{' '}
-            </h1>
-            <button className="something-wrong-try-again-button">
-              Try Again
-            </button>
+        </div>
+
+        <div className="footer-section">
+          <div className="footer-icons-container">
+            <FaGoogle className="icon-style" />
+            <FaTwitter className="icon-style" />
+            <FaInstagram className="icon-style" />
+            <FaYoutube className="icon-style" />
           </div>
+          <h3 className="footer-note">Contact us</h3>
         </div>
       </div>
     </div>
   )
 
-  renderLoadingView = () => (
-    <div className="bookhub-loader-container">
-      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
-    </div>
-  )
-
   render() {
     const {apiStatus} = this.state
+
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderTopRatedBooksList()
+        return this.renderTopRatedBooksListView()
       case apiStatusConstants.failure:
         return this.renderFailureView()
       case apiStatusConstants.inProgress:
