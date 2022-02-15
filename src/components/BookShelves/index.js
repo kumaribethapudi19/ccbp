@@ -273,7 +273,7 @@ class BookShelves extends Component {
               <FaInstagram className="icon-style" />
               <FaYoutube className="icon-style" />
             </div>
-            <h3 className="footer-note">Contact us</h3>
+            <p className="footer-note">Contact us</p>
           </div>
         </div>
       </div>

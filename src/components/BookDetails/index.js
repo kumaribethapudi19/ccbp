@@ -101,8 +101,8 @@ class BookDetails extends Component {
                   Avg Rating <BsFillStarFill className="star" />
                   {rating}
                 </p>
-                <p className="cover-description">
-                  Status: <span className="status-style">{readStatus}</span>
+                <p className="cover-description status-style">
+                  Status:{readStatus}
                 </p>
               </div>
             </div>
