@@ -332,10 +332,9 @@ class BookShelves extends Component {
                     className="something-wrong-view"
                     src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
                   />
-                  <h1 className="something-wrong-heading">
-                    {' '}
-                    Something went wrong, Please try again.{' '}
-                  </h1>
+                  <p className="something-wrong-heading">
+                    Something went wrong, Please try again
+                  </p>
                   <button
                     type="button"
                     className="something-wrong-try-again-button"
@@ -355,7 +354,7 @@ class BookShelves extends Component {
             </div>
           </div>
 
-          <div className="footer-section">
+          <div className="footer-section" testid="footerSection">
             <div className="footer-icons-container">
               <FaGoogle className="icon-style" />
               <FaTwitter className="icon-style" />

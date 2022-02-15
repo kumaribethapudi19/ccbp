@@ -119,57 +119,63 @@ class Home extends Component {
     </div>
   )
 
-  renderTopRatedBooksListView = () => (
-    <div>
-      <div className="header-container">
-        <Header />
-      </div>
-      <div className="body-container">
-        <div className="home-description-card">
-          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
-          <p className="home-page-description">
-            You are in the right place. Tell us what titles or genres you have
-            enjoyed in the past, and we will give you surprisingly insightful
-            recommendations.
-          </p>
-          <button
-            className="home-page-find-button"
-            type="button"
-            onClick={this.onClickFindBooks}
-          >
-            Find Books
-          </button>
+  renderTopRatedBooksListView = () => {
+    const {topRatedBooksList} = this.state
+    const {title} = topRatedBooksList
+    return (
+      <div>
+        <div className="header-container">
+          <Header />
         </div>
-        <div className="books-display-card">
-          <div className="books-display-card-header">
-            <h1 className="display-card-heading">
-              Top Rated Books
-              <span>
-                <button
-                  type="button"
-                  className="display-card-find-button"
-                  onClick={this.onClickFindBooks}
-                >
-                  Find Books
-                </button>
-              </span>
+        <div className="body-container">
+          <div className="home-description-card">
+            <h1 className="home-page-heading">
+              Find Your Next Favorite Books? {title}
             </h1>
+            <p className="home-page-description">
+              You are in the right place. Tell us what titles or genres you have
+              enjoyed in the past, and we will give you surprisingly insightful
+              recommendations.
+            </p>
+            <button
+              className="home-page-find-button"
+              type="button"
+              onClick={this.onClickFindBooks}
+            >
+              Find Books
+            </button>
           </div>
-          {this.renderTopRatedBooksList()}
-        </div>
+          <div className="books-display-card">
+            <div className="books-display-card-header">
+              <h1 className="display-card-heading">
+                Top Rated Books
+                <span>
+                  <button
+                    type="button"
+                    className="display-card-find-button"
+                    onClick={this.onClickFindBooks}
+                  >
+                    Find Books
+                  </button>
+                </span>
+              </h1>
+            </div>
+            {this.renderTopRatedBooksList()}
+          </div>
 
-        <div className="footer-section">
-          <div className="footer-icons-container">
-            <FaGoogle className="icon-style" />
-            <FaTwitter className="icon-style" />
-            <FaInstagram className="icon-style" />
-            <FaYoutube className="icon-style" />
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <p className="footer-note">Contact us</p>
           </div>
-          <p className="footer-note">Contact us</p>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   renderFailureView = () => (
     <div>

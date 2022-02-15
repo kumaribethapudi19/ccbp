@@ -93,7 +93,7 @@ class BookDetails extends Component {
         <div className="body-container">
           <div className="book-details-container">
             <div className="cover-details">
-              <img src={coverPic} alt="book" className="cover-pic-style" />
+              <img src={coverPic} alt={title} className="cover-pic-style" />
               <div className="cover-details-card">
                 <h1 className="main-heading">{title}</h1>
                 <p className="cover-description">{authorName}</p>
@@ -135,14 +135,13 @@ class BookDetails extends Component {
       <div className="body-container">
         <div className="something-wrong-view-container">
           <img
-            alt="no books"
+            alt="failure view"
             className="something-wrong-view"
             src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
           />
-          <h1 className="something-wrong-heading">
-            {' '}
-            Something went wrong, Please try again.{' '}
-          </h1>
+          <p className="something-wrong-heading">
+            Something went wrong. Please try again
+          </p>
           <button
             type="button"
             className="something-wrong-try-again-button"
