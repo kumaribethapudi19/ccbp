@@ -33,9 +33,9 @@ class Home extends Component {
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const options = {
-      /*  headers: {
+      headers: {
         Authorization: `Bearer ${jwtToken}`,
-      },  */
+      },
       method: 'GET',
     }
     console.log('After fetching get the response')

@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
+import {BsFillStarFill} from 'react-icons/bs'
 import Header from '../Header'
 import BooksSlick from '../BooksSlick'
 
@@ -96,8 +97,13 @@ class BookDetails extends Component {
               <div className="cover-details-card">
                 <h1 className="main-heading">{title}</h1>
                 <p className="cover-description">{authorName}</p>
-                <p className="cover-description">{`Avg Rating  ${rating}`}</p>
-                <p className="cover-description">{`Status: ${readStatus}`}</p>
+                <p className="cover-description">
+                  Avg Rating <BsFillStarFill className="star" />
+                  {rating}
+                </p>
+                <p className="cover-description">
+                  Status: <span className="status-style">{readStatus}</span>
+                </p>
               </div>
             </div>
             <br className="line-style" />
