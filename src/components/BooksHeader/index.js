@@ -28,7 +28,20 @@ const BooksHeader = props => {
     changeSearchInput(event.target.value)
   }
 
-  const getShelfName = () => getShelf()
+  const getShelfName = () => {
+    const shelfName = getShelf()
+
+    if (shelfName === 'ALL') {
+      return `All`
+    }
+    if (shelfName === 'CURRENTLY_READING') {
+      return 'Currently Reading'
+    }
+    if (shelfName === 'WANT_TO_READ') {
+      return 'Want to Read'
+    }
+    return `Read`
+  }
 
   console.log(`searchInput:${searchInput}`)
 
