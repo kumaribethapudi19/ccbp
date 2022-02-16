@@ -70,7 +70,9 @@ class Home extends Component {
   renderCarousal = () => {
     const {topRatedBooksList} = this.state
     console.log(topRatedBooksList)
-    return <BooksSlick booksList={topRatedBooksList} />
+    return (
+      <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
+    )
   }
 
   onClickFindBooks = () => {
@@ -130,7 +132,7 @@ class Home extends Component {
         <div className="body-container">
           <div className="home-description-card">
             <h1 className="home-page-heading">
-              Find Your Next Favorite Books? {title}
+              Find Your Next Favorite Books?
             </h1>
             <p className="home-page-description">
               You are in the right place. Tell us what titles or genres you have
@@ -218,13 +220,13 @@ class Home extends Component {
             testid="somethingWrongViewContainer"
           >
             <img
-              alt="no books"
+              alt="failure view"
               className="something-wrong-view"
               src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
             />
-            <h1 className="something-wrong-heading">
-              Something went wrong, Please try again.
-            </h1>
+            <p className="something-wrong-heading">
+              Something went wrong. Please try again
+            </p>
             <button
               type="button"
               className="something-wrong-try-again-button"

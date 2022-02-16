@@ -7,11 +7,11 @@ import 'slick-carousel/slick/slick-theme.css'
 import './index.css'
 
 const BooksSlick = props => {
-  const {booksList} = props
-  console.log(booksList)
+  const {topRatedBooksList} = props
+  console.log(topRatedBooksList)
   const settings1 = {
     dots: false,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {
@@ -24,14 +24,7 @@ const BooksSlick = props => {
       {
         breakpoint: 1048,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1226,
-        settings: {
-          slidesToShow: 5,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -41,7 +34,7 @@ const BooksSlick = props => {
   return (
     <ul className="slider-container" testid="sliderContainer">
       <Slider {...settings1}>
-        {booksList.map(each => {
+        {topRatedBooksList.map(each => {
           const {coverPic, title, authorName, id} = each
           console.log(id)
           return (

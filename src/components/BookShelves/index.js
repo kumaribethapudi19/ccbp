@@ -253,7 +253,11 @@ class BookShelves extends Component {
                 testid="booksDisplayContainer"
               >
                 {booksList.map(eachBook => (
-                  <BookItem key={eachBook.id} bookItemDetails={eachBook} />
+                  <BookItem
+                    key={eachBook.id}
+                    bookItemDetails={eachBook}
+                    testid="bookItem"
+                  />
                 ))}
               </ul>
             </div>
