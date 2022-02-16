@@ -79,7 +79,7 @@ class Home extends Component {
     console.log('Find Books Clicked')
     console.log(this.props)
     const {history} = this.props
-    history.push('/shelves')
+    history.push('/shelf')
   }
 
   onTryAgainButtonClicked = () => {
@@ -123,7 +123,6 @@ class Home extends Component {
 
   renderTopRatedBooksListView = () => {
     const {topRatedBooksList} = this.state
-    const {title} = topRatedBooksList
     return (
       <div>
         <div className="header-container">

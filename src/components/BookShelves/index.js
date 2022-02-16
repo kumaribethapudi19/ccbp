@@ -2,7 +2,8 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
-import {BsSearch} from 'react-icons/bs'
+import {BsSearch, BsFillStarFill} from 'react-icons/bs'
+
 import Header from '../Header'
 import BooksHeader from '../BooksHeader'
 import ShelfItem from '../ShelfItem'
@@ -152,7 +153,25 @@ class BookShelves extends Component {
         />
         <ul className="books-list">
           {booksList.map(eachBook => (
-            <BookItem key={eachBook.id} bookItemDetails={eachBook} />
+            <li className="book-info-display">
+              <img
+                src={eachBook.coverPic}
+                className="pic-style"
+                alt={eachBook.title}
+              />
+              <div className="book-info-details-card">
+                <h1 className="title-heading">{eachBook.title}</h1>
+                <p className="para">{eachBook.authorName}</p>
+                <p className="para">
+                  Avg Rating <BsFillStarFill className="star" />
+                  {eachBook.rating}
+                </p>
+                <p className="para">
+                  Status:{' '}
+                  <span className="status-style">{eachBook.readStatus}</span>
+                </p>
+              </div>
+            </li>
           ))}
         </ul>
       </div>
@@ -248,16 +267,29 @@ class BookShelves extends Component {
               </ul>
             </div>
             <div className="books-container">
-              <ul
-                className="books-display-container"
-                testid="booksDisplayContainer"
-              >
+              <ul className="books-display-container">
                 {booksList.map(eachBook => (
-                  <BookItem
-                    key={eachBook.id}
-                    bookItemDetails={eachBook}
-                    testid="bookItem"
-                  />
+                  <li className="book-info-display">
+                    <img
+                      src={eachBook.coverPic}
+                      className="pic-style"
+                      alt={eachBook.title}
+                    />
+                    <div className="book-info-details-card">
+                      <h1 className="title-heading">{eachBook.title}</h1>
+                      <p className="para">{eachBook.authorName}</p>
+                      <p className="para">
+                        Avg Rating <BsFillStarFill className="star" />
+                        {eachBook.rating}
+                      </p>
+                      <p className="para">
+                        Status:{' '}
+                        <span className="status-style">
+                          {eachBook.readStatus}
+                        </span>
+                      </p>
+                    </div>
+                  </li>
                 ))}
               </ul>
             </div>

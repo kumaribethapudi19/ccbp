@@ -394,3 +394,134 @@
     color: #3d3c3c;
   }
 }
+
+.book-info-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.pic-style {
+  width: 133px;
+  height: 155px;
+  margin-left: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.book-info-details-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 16px;
+}
+
+.title-heading {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+
+  margin: 0px;
+
+  color: #334155;
+
+  width: 146px;
+  border-radius: nullpx;
+}
+
+.para {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 5px;
+  color: #475569;
+}
+
+.star {
+  color: #fbbf24;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.status-style {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+
+  width: 30px;
+
+  color: #0284c7;
+}
+
+@media Screen and (min-width: 768px) {
+  .book-info-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .pic-style {
+    width: 133px;
+    height: 155px;
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .book-info-details-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .title-heading {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+
+    /* Light / blue-gray / 700 */
+
+    color: #334155;
+    height: 48px;
+    width: 146px;
+    border-radius: nullpx;
+  }
+
+  .para {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    /* Light / blue-gray / 600 */
+
+    color: #475569;
+    width: 44px;
+    height: 16px;
+  }
+
+  .status-style {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+    width: 30px;
+    height: 16px;
+
+    color: #0284c7;
+  }
+}
