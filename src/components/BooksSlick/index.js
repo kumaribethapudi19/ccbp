@@ -39,7 +39,7 @@ const BooksSlick = props => {
           console.log(id)
           return (
             <Link to={`/books/${id}`}>
-              <div key={each.id} className="top-rated-book-card-style">
+              <li key={each.id} className="top-rated-book-card-style">
                 <img
                   className="top-rated-book-pic-style"
                   src={coverPic}
@@ -47,7 +47,7 @@ const BooksSlick = props => {
                 />
                 <h1 className="top-rated-book-title-style">{title}</h1>
                 <p className="top-rated-book-name-style">{authorName} </p>
-              </div>
+              </li>
             </Link>
           )
         })}
