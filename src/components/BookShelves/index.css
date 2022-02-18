@@ -34,6 +34,21 @@
   order: 3;
 }
 
+.search-fail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-fail-view {
+  width: 75%;
+}
+
+.search-fail-msg {
+  font-size: 16px;
+}
+
 .search-container {
   margin-top: 30px;
   margin-left: 20px;
