@@ -3,6 +3,16 @@
   flex-direction: row;
 }
 
+.books-list-heading {
+  display: none;
+}
+
 .search-container {
   margin-left: 20px;
+}
+
+@media Screen and (min-width: 768px) {
+  .books-list-heading {
+    display: inline;
+  }
 }

@@ -144,12 +144,15 @@ class BookShelves extends Component {
 
     return shouldShowBooksList ? (
       <div className="status-books-container">
-        <BooksHeader
-          searchInput={searchInput}
-          getShelf={this.getShelf}
-          changeSearchInput={this.changeSearchInput}
-          enterSearchInput={this.enterSearchInput}
-        />
+        <div className="books-header">
+          <BooksHeader
+            searchInput={searchInput}
+            getShelf={this.getShelf}
+            changeSearchInput={this.changeSearchInput}
+            enterSearchInput={this.enterSearchInput}
+          />
+        </div>
+
         <ul className="books-list">
           {booksList.map(eachBook => (
             <BookItem key={eachBook.id} bookItemDetails={eachBook} />
@@ -158,12 +161,14 @@ class BookShelves extends Component {
       </div>
     ) : (
       <div className="status-books-container">
-        <BooksHeader
-          searchInput={searchInput}
-          getShelf={this.getShelf}
-          changeSearchInput={this.changeSearchInput}
-          enterSearchInput={this.enterSearchInput}
-        />
+        <div className="books-header">
+          <BooksHeader
+            searchInput={searchInput}
+            getShelf={this.getShelf}
+            changeSearchInput={this.changeSearchInput}
+            enterSearchInput={this.enterSearchInput}
+          />
+        </div>
         <div className="something-wrong-view-container">
           <img
             alt="no books"
@@ -213,59 +218,12 @@ class BookShelves extends Component {
           <Header />
         </div>
         <div className="body-container">
-          <div className="mobile-view">
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
-                placeholder="Search"
-                onChange={this.onChangeOfSearchInput}
-              />
-              <button
-                type="button"
-                testid="searchButton"
-                className="search-button"
-              >
-                <BsSearch
-                  className="search-icon-style"
-                  onEnter={this.onClickOfSearchButton}
-                />
-              </button>
-            </div>
-
-            <div className="status-container">
-              <h1 className="status-main-heading">Bookshelves</h1>
-              <ul className="button-container">
-                {bookshelvesList.map(each => (
-                  <ShelfItem
-                    key={each.id}
-                    shelfDetails={each}
-                    onStatusChange={this.onStatusChange}
-                    isActive={activeShelf === each.id}
-                  />
-                ))}
-              </ul>
-            </div>
-            <div className="books-container">
-              <ul
-                className="books-display-container"
-                testid="booksDisplayContainer"
-              >
-                {booksList.map(eachBook => (
-                  <BookItem key={eachBook.id} bookItemDetails={eachBook} />
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="desktop-view">
+          <div className="books-view">
             <div className="status-container">{this.renderShelves()}</div>
             <div className="books-and-header-container">
               {this.renderBooksList()}
             </div>
           </div>
-
           <div className="footer-section">
             <div className="footer-icons-container">
               <FaGoogle className="icon-style" />
