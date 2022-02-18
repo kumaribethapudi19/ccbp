@@ -8,20 +8,22 @@ const BookItem = props => {
   const {title, rating, authorName, coverPic, readStatus, id} = bookItemDetails
 
   return (
-    <li className="book-info-display">
-      <img src={coverPic} className="pic-style" alt={title} />
-      <div className="book-info-details-card">
-        <h1 className="title-heading">{title}</h1>
-        <p className="para">{authorName}</p>
-        <p className="para">
-          Avg Rating <BsFillStarFill className="star" />
-          {rating}
-        </p>
-        <p className="para">
-          Status: <span className="status-style">{readStatus}</span>
-        </p>
-      </div>
-    </li>
+    <Link to={`/books/${id}`}>
+      <li className="book-info-display">
+        <img src={coverPic} className="pic-style" alt={title} />
+        <div className="book-info-details-card">
+          <h1 className="title-heading">{title}</h1>
+          <p className="para">{authorName}</p>
+          <p className="para">
+            Avg Rating <BsFillStarFill className="star" />
+            {rating}
+          </p>
+          <p className="para">
+            Status: <span className="status-style">{readStatus}</span>
+          </p>
+        </div>
+      </li>
+    </Link>
   )
 }
 
