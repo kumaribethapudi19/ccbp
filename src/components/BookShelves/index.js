@@ -216,6 +216,34 @@ class BookShelves extends Component {
           <div className="books-view">
             <div className="status-container">{this.renderShelves()}</div>
             <div className="books-and-header-container">
+              {this.renderBooksList()}
+            </div>
+          </div>
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <p className="footer-note">Contact us</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  renderFailureView = () => {
+    const {searchInput, booksList, activeShelf} = this.state
+    return (
+      <div>
+        <div className="header-container">
+          <Header />
+        </div>
+        <div className="body-container">
+          <div className="books-view">
+            <div className="status-container">{this.renderShelves()}</div>
+            <div className="books-and-header-container">
               <div className="status-books-container">
                 <div className="books-header">
                   <BooksHeader
@@ -246,34 +274,6 @@ class BookShelves extends Component {
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="footer-section">
-            <div className="footer-icons-container">
-              <FaGoogle className="icon-style" />
-              <FaTwitter className="icon-style" />
-              <FaInstagram className="icon-style" />
-              <FaYoutube className="icon-style" />
-            </div>
-            <p className="footer-note">Contact us</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  renderFailureView = () => {
-    const {searchInput, booksList, activeShelf} = this.state
-    return (
-      <div>
-        <div className="header-container">
-          <Header />
-        </div>
-        <div className="body-container">
-          <div className="books-view">
-            <div className="status-container">{this.renderShelves()}</div>
-            <div className="books-and-header-container">
-              {this.renderBooksList()}
             </div>
           </div>
 
