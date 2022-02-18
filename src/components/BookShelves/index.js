@@ -143,7 +143,7 @@ class BookShelves extends Component {
   renderBooksList = () => {
     const {booksList, searchInput} = this.state
 
-    const shouldShowBooksList = booksList.length > 0
+    const shouldShowBooksList = booksList.length !== 0
 
     return shouldShowBooksList ? (
       <div className="status-books-container">
