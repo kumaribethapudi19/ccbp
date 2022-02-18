@@ -73,8 +73,11 @@ class BookShelves extends Component {
     })
     console.log('get the books list')
     const jwtToken = Cookies.get('jwt_token')
+
     const url = `https://apis.ccbp.in/book-hub/books?shelf=${shelf}&search=${searchInput}`
+
     console.log(`url:${url}`)
+
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -169,23 +172,15 @@ class BookShelves extends Component {
             enterSearchInput={this.enterSearchInput}
           />
         </div>
-        <div className="something-wrong-view-container">
+        <div className="search-fail-container">
           <img
             alt="no books"
-            className="something-wrong-view"
-            src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+            className="search-fail-view"
+            src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1645208490/searchfail_rq1oe5.png"
           />
-          <h1 className="something-wrong-heading">
-            {' '}
-            Something went wrong, Please try again.{' '}
-          </h1>
-          <button
-            type="button"
-            className="something-wrong-try-again-button"
-            onClick={this.onTryAgainButtonClicked}
-          >
-            Try Again
-          </button>
+          <p className="search-fail-msg">
+            Your search for {searchInput} did not find any matches.
+          </p>
         </div>
       </div>
     )
@@ -221,7 +216,36 @@ class BookShelves extends Component {
           <div className="books-view">
             <div className="status-container">{this.renderShelves()}</div>
             <div className="books-and-header-container">
-              {this.renderBooksList()}
+              <div className="status-books-container">
+                <div className="books-header">
+                  <BooksHeader
+                    searchInput={searchInput}
+                    getShelf={this.getShelf}
+                    changeSearchInput={this.changeSearchInput}
+                    enterSearchInput={this.enterSearchInput}
+                  />
+                </div>
+                <div
+                  className="something-wrong-view-container"
+                  testid="somethingWrongViewContainer"
+                >
+                  <img
+                    alt="failure view"
+                    className="something-wrong-view"
+                    src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+                  />
+                  <p className="something-wrong-heading">
+                    Something went wrong. Please try again
+                  </p>
+                  <button
+                    type="button"
+                    className="something-wrong-try-again-button"
+                    onClick={this.onTryAgainButtonClicked}
+                  >
+                    Try Again
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div className="footer-section">
@@ -246,70 +270,7 @@ class BookShelves extends Component {
           <Header />
         </div>
         <div className="body-container">
-          <div className="mobile-view">
-            <div className="search-container">
-              <input
-                type="search"
-                className="search-input-style"
-                value={searchInput}
-                placeholder="Search"
-                onChange={this.onChangeOfSearchInput}
-              />
-              <button
-                type="button"
-                testid="searchButton"
-                className="search-button"
-              >
-                <BsSearch
-                  className="search-icon-style"
-                  onEnter={this.onClickOfSearchButton}
-                />
-              </button>
-            </div>
-
-            <div className="status-container">
-              <h1 className="status-main-heading">Bookshelves</h1>
-              <ul className="button-container">
-                {bookshelvesList.map(each => (
-                  <ShelfItem
-                    key={each.id}
-                    shelfDetails={each}
-                    onStatusChange={this.onStatusChange}
-                    isActive={activeShelf === each.id}
-                  />
-                ))}
-              </ul>
-            </div>
-            <div className="books-container">
-              {booksList.length > 0 ? (
-                <ul className="books-display-container">
-                  {booksList.map(eachBook => (
-                    <BookItem key={eachBook.id} bookItemDetails={eachBook} />
-                  ))}
-                </ul>
-              ) : (
-                <div className="something-wrong-view-container">
-                  <img
-                    alt="no books"
-                    className="something-wrong-view"
-                    src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-                  />
-                  <p className="something-wrong-heading">
-                    Something went wrong, Please try again
-                  </p>
-                  <button
-                    type="button"
-                    className="something-wrong-try-again-button"
-                    onClick={this.onTryAgainButtonClicked}
-                  >
-                    Try Again
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="desktop-view">
+          <div className="books-view">
             <div className="status-container">{this.renderShelves()}</div>
             <div className="books-and-header-container">
               {this.renderBooksList()}
