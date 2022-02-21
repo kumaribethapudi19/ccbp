@@ -190,7 +190,7 @@ class BookShelves extends Component {
     const {activeShelf} = this.state
     return (
       <>
-        <h1 className="status-main-heading">BookShelves</h1>
+        <h1 className="status-main-heading">Bookshelves</h1>
         <ul className="button-container">
           {bookshelvesList.map(each => (
             <ShelfItem
