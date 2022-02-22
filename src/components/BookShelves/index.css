@@ -538,7 +538,7 @@
   }
 
   .para {
-    font-family: Inter;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -548,18 +548,18 @@
     /* Light / blue-gray / 600 */
 
     color: #475569;
-    width: 44px;
+    width: 100px;
     height: 16px;
   }
 
   .status-style {
-    font-family: Inter;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     /* identical to box height, or 133% */
-    width: 30px;
+    width: 90px;
     height: 16px;
 
     color: #0284c7;
