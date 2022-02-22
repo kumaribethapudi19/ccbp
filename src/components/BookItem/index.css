@@ -20,6 +20,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 16px;
+  width: 220px;
 }
 
 .title-heading {
@@ -43,6 +44,7 @@
   font-size: 12px;
   margin: 5px;
   color: #475569;
+  width: 100px;
 }
 
 .star {
