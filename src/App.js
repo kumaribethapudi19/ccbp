@@ -8,8 +8,6 @@ import NotFound from './components/NotFound'
 
 import './App.css'
 
-// use the below bookshelvesList for rendering read status of book items in Bookshelves Route
-
 const App = () => (
   <Switch>
     <Route exact path="/login" component={Login} />
