@@ -60,11 +60,13 @@ const BooksHeader = props => {
           onChange={onChangeSearchInput}
           onKeyDown={onEnterSearchInput}
         />
-        <button type="button" className="search-button" testid="searchButton">
-          <BsSearch
-            className="search-icon-style"
-            onClick={onClickSearchInputButton}
-          />
+        <button
+          type="button"
+          className="search-button"
+          testid="searchButton"
+          onClick={onClickSearchInputButton}
+        >
+          <BsSearch className="search-icon-style" />
         </button>
       </div>
     </div>
