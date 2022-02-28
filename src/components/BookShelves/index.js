@@ -205,20 +205,6 @@ class BookShelves extends Component {
     )
   }
 
-  renderBooksList = () => {
-    const {apiStatus} = this.state
-    switch (apiStatus) {
-      case apiStatusConstants.success:
-        return this.renderBooksListView()
-      case apiStatusConstants.failure:
-        return this.renderFailureView()
-      case apiStatusConstants.inProgress:
-        return this.renderLoadingView()
-      default:
-        return null
-    }
-  }
-
   renderFailureView = () => {
     const {searchInput, booksList, activeShelf} = this.state
     return (
@@ -275,6 +261,20 @@ class BookShelves extends Component {
         </div>
       </div>
     )
+  }
+
+  renderBooksList = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderBooksListView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
   }
 
   render() {
