@@ -205,63 +205,28 @@ class BookShelves extends Component {
     )
   }
 
-  renderFailureView = () => {
-    const {searchInput, booksList, activeShelf} = this.state
-    return (
-      <div>
-        <div className="header-container">
-          <Header />
-        </div>
-        <div className="body-container">
-          <div className="books-view">
-            <div className="status-container">{this.renderShelves()}</div>
-            <div className="books-and-header-container">
-              <div className="status-books-container">
-                <div className="books-header">
-                  <BooksHeader
-                    searchInput={searchInput}
-                    getShelf={this.getShelf}
-                    changeSearchInput={this.changeSearchInput}
-                    enterSearchInput={this.enterSearchInput}
-                  />
-                </div>
-                <div
-                  className="something-wrong-view-container"
-                  testid="somethingWrongViewContainer"
-                >
-                  <img
-                    alt="failure view"
-                    className="something-wrong-view"
-                    src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-                  />
-                  <p className="something-wrong-heading">
-                    Something went wrong. Please try again
-                  </p>
-                  <button
-                    type="button"
-                    className="something-wrong-try-again-button"
-                    onClick={this.onTryAgainButtonClicked}
-                  >
-                    Try Again
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-section" testid="footerSection">
-            <div className="footer-icons-container">
-              <FaGoogle className="icon-style" />
-              <FaTwitter className="icon-style" />
-              <FaInstagram className="icon-style" />
-              <FaYoutube className="icon-style" />
-            </div>
-            <p className="footer-note">Contact us</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  renderFailureView = () => (
+    <div
+      className="something-wrong-view-container"
+      testid="somethingWrongViewContainer"
+    >
+      <img
+        alt="failure view"
+        className="something-wrong-view"
+        src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+      />
+      <p className="something-wrong-heading">
+        Something went wrong. Please try again
+      </p>
+      <button
+        type="button"
+        className="something-wrong-try-again-button"
+        onClick={this.onTryAgainButtonClicked}
+      >
+        Try Again
+      </button>
+    </div>
+  )
 
   renderBooksList = () => {
     const {apiStatus} = this.state
