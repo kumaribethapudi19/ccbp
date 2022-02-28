@@ -140,7 +140,7 @@ class BookShelves extends Component {
     this.setState({searchInput})
   }
 
-  renderBooksList = () => {
+  renderBooksListView = () => {
     const {booksList, searchInput} = this.state
 
     const shouldShowBooksList = booksList.length !== 0
@@ -205,32 +205,18 @@ class BookShelves extends Component {
     )
   }
 
-  renderBooksListView = () => {
-    const {searchInput, booksList, activeShelf} = this.state
-    return (
-      <div>
-        <div className="header-container">
-          <Header />
-        </div>
-        <div className="body-container">
-          <div className="books-view">
-            <div className="status-container">{this.renderShelves()}</div>
-            <div className="books-and-header-container">
-              {this.renderBooksList()}
-            </div>
-          </div>
-          <div className="footer-section">
-            <div className="footer-icons-container">
-              <FaGoogle className="icon-style" />
-              <FaTwitter className="icon-style" />
-              <FaInstagram className="icon-style" />
-              <FaYoutube className="icon-style" />
-            </div>
-            <p className="footer-note">Contact us</p>
-          </div>
-        </div>
-      </div>
-    )
+  renderBooksList = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderBooksListView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
   }
 
   renderFailureView = () => {
@@ -297,17 +283,30 @@ class BookShelves extends Component {
 
     const {activeShelf} = this.state
     console.log(`activeShelf id is:${activeShelf}`)
-
-    switch (apiStatus) {
-      case apiStatusConstants.success:
-        return this.renderBooksListView()
-      case apiStatusConstants.failure:
-        return this.renderFailureView()
-      case apiStatusConstants.inProgress:
-        return this.renderLoadingView()
-      default:
-        return null
-    }
+    return (
+      <div>
+        <div className="header-container">
+          <Header />
+        </div>
+        <div className="body-container">
+          <div className="books-view">
+            <div className="status-container">{this.renderShelves()}</div>
+            <div className="books-and-header-container">
+              {this.renderBooksList()}
+            </div>
+          </div>
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <p className="footer-note">Contact us</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 export default BookShelves
