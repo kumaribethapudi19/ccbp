@@ -87,7 +87,7 @@ class Home extends Component {
     this.getTopRatedBooks()
   }
 
-  renderTopRatedBooksListView = () => {
+  renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
 
     const shouldShowBooksList = topRatedBooksList.length > 0
@@ -121,46 +121,8 @@ class Home extends Component {
     </div>
   )
 
-  renderFailureView = () => (
-    <div
-      className="something-wrong-view-container"
-      testid="somethingWrongViewContainer"
-    >
-      <img
-        alt="failure view"
-        className="something-wrong-view"
-        src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-      />
-      <p className="something-wrong-heading">
-        Something went wrong. Please try again
-      </p>
-      <button
-        type="button"
-        className="something-wrong-try-again-button"
-        onClick={this.onTryAgainButtonClicked}
-      >
-        Try Again
-      </button>
-    </div>
-  )
-
-  renderTopRatedBooksList = () => {
-    const {apiStatus} = this.state
-
-    switch (apiStatus) {
-      case apiStatusConstants.success:
-        return this.renderTopRatedBooksListView()
-      case apiStatusConstants.failure:
-        return this.renderFailureView()
-      case apiStatusConstants.inProgress:
-        return this.renderLoadingView()
-      default:
-        return null
-    }
-  }
-
-  render() {
-    const {apiStatus} = this.state
+  renderTopRatedBooksListView = () => {
+    const {topRatedBooksList} = this.state
     return (
       <div>
         <div className="header-container">
@@ -199,8 +161,9 @@ class Home extends Component {
                 </span>
               </h1>
             </div>
-            {this.renderTopRatedBooksList}
+            {this.renderTopRatedBooksList()}
           </div>
+
           <div className="footer-section">
             <div className="footer-icons-container">
               <FaGoogle className="icon-style" />
@@ -213,6 +176,92 @@ class Home extends Component {
         </div>
       </div>
     )
+  }
+
+  renderFailureView = () => (
+    <div>
+      <div className="header-container">
+        <Header />
+      </div>
+      <div className="body-container">
+        <div className="home-description-card">
+          <h1 className="home-page-heading">Find Your Next Favorite Books?</h1>
+          <p className="home-page-description">
+            You are in the right place. Tell us what titles or genres you have
+            enjoyed in the past, and we will give you surprisingly insightful
+            recommendations.
+          </p>
+          <button
+            className="home-page-find-button"
+            type="button"
+            onClick={this.onClickFindBooks}
+          >
+            Find Books
+          </button>
+        </div>
+        <div className="books-display-card">
+          <div className="books-display-card-header">
+            <h1 className="display-card-heading">
+              Top Rated Books
+              <span>
+                <button
+                  type="button"
+                  className="display-card-find-button"
+                  onClick={this.onClickFindBooks}
+                >
+                  Find Books
+                </button>
+              </span>
+            </h1>
+          </div>
+          <div
+            className="something-wrong-view-container"
+            testid="somethingWrongViewContainer"
+          >
+            <img
+              alt="failure view"
+              className="something-wrong-view"
+              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+            />
+            <p className="something-wrong-heading">
+              Something went wrong. Please try again
+            </p>
+            <button
+              type="button"
+              className="something-wrong-try-again-button"
+              onClick={this.onTryAgainButtonClicked}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+
+        <div className="footer-section">
+          <div className="footer-icons-container">
+            <FaGoogle className="icon-style" />
+            <FaTwitter className="icon-style" />
+            <FaInstagram className="icon-style" />
+            <FaYoutube className="icon-style" />
+          </div>
+          <p className="footer-note">Contact us</p>
+        </div>
+      </div>
+    </div>
+  )
+
+  render() {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTopRatedBooksListView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
   }
 }
 
