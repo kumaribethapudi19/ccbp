@@ -145,7 +145,7 @@ class BookShelves extends Component {
 
     const shouldShowBooksList = booksList.length !== 0
 
-    return shouldShowBooksList ? (
+    return (
       <div className="status-books-container">
         <div className="books-header">
           <BooksHeader
@@ -156,32 +156,24 @@ class BookShelves extends Component {
           />
         </div>
 
-        <ul className="books-list">
-          {booksList.map(eachBook => (
-            <BookItem key={eachBook.id} bookItemDetails={eachBook} />
-          ))}
-        </ul>
-      </div>
-    ) : (
-      <div className="status-books-container">
-        <div className="books-header">
-          <BooksHeader
-            searchInput={searchInput}
-            getShelf={this.getShelf}
-            changeSearchInput={this.changeSearchInput}
-            enterSearchInput={this.enterSearchInput}
-          />
-        </div>
-        <div className="search-fail-container">
-          <img
-            alt="no books"
-            className="search-fail-view"
-            src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1645208490/searchfail_rq1oe5.png"
-          />
-          <p className="search-fail-msg">
-            {` Your search for ${searchInput} did not find any matches.`}
-          </p>
-        </div>
+        {shouldShowBooksList ? (
+          <ul className="books-list">
+            {booksList.map(eachBook => (
+              <BookItem key={eachBook.id} bookItemDetails={eachBook} />
+            ))}
+          </ul>
+        ) : (
+          <div className="search-fail-container">
+            <img
+              alt="no books"
+              className="search-fail-view"
+              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1645208490/searchfail_rq1oe5.png"
+            />
+            <p className="search-fail-msg">
+              {` Your search for ${searchInput} did not find any matches.`}
+            </p>
+          </div>
+        )}
       </div>
     )
   }
@@ -205,28 +197,42 @@ class BookShelves extends Component {
     )
   }
 
-  renderFailureView = () => (
-    <div
-      className="something-wrong-view-container"
-      testid="somethingWrongViewContainer"
-    >
-      <img
-        alt="failure view"
-        className="something-wrong-view"
-        src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-      />
-      <p className="something-wrong-heading">
-        Something went wrong. Please try again
-      </p>
-      <button
-        type="button"
-        className="something-wrong-try-again-button"
-        onClick={this.onTryAgainButtonClicked}
-      >
-        Try Again
-      </button>
-    </div>
-  )
+  renderFailureView = () => {
+    const {searchInput} = this.state
+    return (
+      <div className="status-books-container">
+        <div className="books-header">
+          <BooksHeader
+            searchInput={searchInput}
+            getShelf={this.getShelf}
+            changeSearchInput={this.changeSearchInput}
+            enterSearchInput={this.enterSearchInput}
+          />
+        </div>
+
+        <div
+          className="something-wrong-view-container"
+          testid="somethingWrongViewContainer"
+        >
+          <img
+            alt="failure view"
+            className="something-wrong-view"
+            src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+          />
+          <p className="something-wrong-heading">
+            Something went wrong. Please try again
+          </p>
+          <button
+            type="button"
+            className="something-wrong-try-again-button"
+            onClick={this.onTryAgainButtonClicked}
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   renderBooksList = () => {
     const {apiStatus} = this.state
