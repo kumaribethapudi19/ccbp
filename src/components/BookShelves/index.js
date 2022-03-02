@@ -142,7 +142,7 @@ class BookShelves extends Component {
 
   renderBooksListView = () => {
     const {booksList, searchInput} = this.state
-
+    const searchValue = searchInput
     const shouldShowBooksList = booksList.length !== 0
 
     return (
@@ -170,7 +170,7 @@ class BookShelves extends Component {
               src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1645208490/searchfail_rq1oe5.png"
             />
             <p className="search-fail-msg">
-              {`Your search for ${searchInput} did not find any matches.`}
+              {`Your search for ${searchValue} did not find any matches.`}
             </p>
           </div>
         )}
