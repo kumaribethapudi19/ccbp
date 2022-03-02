@@ -32,7 +32,7 @@ const BooksSlick = props => {
   }
 
   return (
-    <ul className="slider-container" testid="sliderContainer">
+    <ul className="slider-container">
       <Slider {...settings1}>
         {topRatedBooksList.map(each => {
           const {coverPic, title, authorName, id} = each
