@@ -162,7 +162,6 @@ class Home extends Component {
   }
 
   render() {
-    const {apiStatus} = this.state
     return (
       <div>
         <div className="header-container">
