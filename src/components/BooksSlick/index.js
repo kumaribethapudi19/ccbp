@@ -46,7 +46,7 @@ const BooksSlick = props => {
                   alt={title}
                 />
                 <h1 className="top-rated-book-title-style">{title}</h1>
-                <h1 className="top-rated-book-name-style">{authorName} </h1>
+                <p className="top-rated-book-name-style">{authorName}</p>
               </li>
             </Link>
           )
