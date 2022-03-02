@@ -124,41 +124,25 @@ class Home extends Component {
   renderTopRatedBooksListView = () => this.renderTopRatedBooksList()
 
   renderFailureView = () => (
-    <div className="books-display-card">
-      <div className="books-display-card-header">
-        <h1 className="display-card-heading">
-          Top Rated Books
-          <span>
-            <button
-              type="button"
-              className="display-card-find-button"
-              onClick={this.onClickFindBooks}
-            >
-              Find Books
-            </button>
-          </span>
-        </h1>
-      </div>
-      <div
-        className="something-wrong-view-container"
-        testid="somethingWrongViewContainer"
+    <div
+      className="something-wrong-view-container"
+      testid="somethingWrongViewContainer"
+    >
+      <img
+        alt="failure view"
+        className="something-wrong-view"
+        src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+      />
+      <p className="something-wrong-heading">
+        Something went wrong. Please try again
+      </p>
+      <button
+        type="button"
+        className="something-wrong-try-again-button"
+        onClick={this.onTryAgainButtonClicked}
       >
-        <img
-          alt="failure view"
-          className="something-wrong-view"
-          src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-        />
-        <p className="something-wrong-heading">
-          Something went wrong. Please try again
-        </p>
-        <button
-          type="button"
-          className="something-wrong-try-again-button"
-          onClick={this.onTryAgainButtonClicked}
-        >
-          Try Again
-        </button>
-      </div>
+        Try Again
+      </button>
     </div>
   )
 
@@ -202,7 +186,24 @@ class Home extends Component {
               Find Books
             </button>
           </div>
-          {this.renderViews()}
+
+          <div className="books-display-card">
+            <div className="books-display-card-header">
+              <h1 className="display-card-heading">
+                Top Rated Books
+                <span>
+                  <button
+                    type="button"
+                    className="display-card-find-button"
+                    onClick={this.onClickFindBooks}
+                  >
+                    Find Books
+                  </button>
+                </span>
+              </h1>
+            </div>
+            {this.renderViews()}
+          </div>
 
           <div className="footer-section">
             <div className="footer-icons-container">
