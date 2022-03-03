@@ -90,7 +90,7 @@ class Home extends Component {
   renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
 
-    const shouldShowBooksList = topRatedBooksList.length > 0
+    const shouldShowBooksList = topRatedBooksList.length !== 0
 
     return shouldShowBooksList ? (
       <div className="slick-display-style">{this.renderCarousal()}</div>
