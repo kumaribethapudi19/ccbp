@@ -47,7 +47,6 @@ class BookShelves extends Component {
   }
 
   componentDidMount() {
-    console.log('component did mount method')
     this.getBooks()
   }
 
@@ -56,8 +55,7 @@ class BookShelves extends Component {
     const selectedShelf = bookshelvesList.filter(
       each => each.id === activeShelf,
     )
-    console.log(`selectedShelf NAME:${selectedShelf}`)
-    console.log(selectedShelf[0])
+
     return selectedShelf[0].value
   }
 
@@ -65,18 +63,14 @@ class BookShelves extends Component {
     const {searchInput} = this.state
 
     const shelf = this.getShelf()
-    console.log(`shelf is:${shelf}`)
-    console.log(`searchInput Value is:${searchInput}`)
 
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    console.log('get the books list')
+
     const jwtToken = Cookies.get('jwt_token')
 
     const url = `https://apis.ccbp.in/book-hub/books?shelf=${shelf}&search=${searchInput}`
-
-    console.log(`url:${url}`)
 
     const options = {
       headers: {
@@ -84,12 +78,11 @@ class BookShelves extends Component {
       },
       method: 'GET',
     }
-    console.log('After fetching get the response')
+
     const response = await fetch(url, options)
-    console.log(response)
+
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
 
       const updatedData = fetchedData.books.map(book => ({
         id: book.id,
@@ -116,7 +109,6 @@ class BookShelves extends Component {
   }
 
   onTryAgainButtonClicked = () => {
-    console.log('Try Again Button clicked')
     this.getBooks()
   }
 
@@ -127,8 +119,6 @@ class BookShelves extends Component {
   )
 
   onStatusChange = shelfValue => {
-    console.log('button clicked')
-
     this.setState({activeShelf: shelfValue}, this.getBooks)
   }
 
@@ -230,10 +220,9 @@ class BookShelves extends Component {
 
   render() {
     const {apiStatus} = this.state
-    console.log(this.props)
 
     const {activeShelf, searchInput} = this.state
-    console.log(`activeShelf id is:${activeShelf}`)
+
     return (
       <div>
         <div className="header-container">

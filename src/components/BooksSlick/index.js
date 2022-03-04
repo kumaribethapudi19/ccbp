@@ -8,7 +8,7 @@ import './index.css'
 
 const BooksSlick = props => {
   const {topRatedBooksList} = props
-  console.log(topRatedBooksList)
+
   const settings1 = {
     dots: false,
     slidesToShow: 4,
@@ -36,7 +36,7 @@ const BooksSlick = props => {
       <Slider {...settings1}>
         {topRatedBooksList.map(each => {
           const {coverPic, title, authorName, id} = each
-          console.log(id)
+
           return (
             <Link to={`/books/${id}`}>
               <li key={each.id} className="top-rated-book-card-style">
