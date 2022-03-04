@@ -146,16 +146,7 @@ class BookShelves extends Component {
     const shouldShowBooksList = booksList.length !== 0
 
     return (
-      <div className="status-books-container">
-        <div className="books-header">
-          <BooksHeader
-            searchInput={searchInput}
-            getShelf={this.getShelf}
-            changeSearchInput={this.changeSearchInput}
-            enterSearchInput={this.enterSearchInput}
-          />
-        </div>
-
+      <>
         {shouldShowBooksList ? (
           <ul className="books-list">
             {booksList.map(eachBook => (
@@ -174,7 +165,7 @@ class BookShelves extends Component {
             </p>
           </div>
         )}
-      </div>
+      </>
     )
   }
 
@@ -200,36 +191,25 @@ class BookShelves extends Component {
   renderFailureView = () => {
     const {searchInput} = this.state
     return (
-      <div className="status-books-container">
-        <div className="books-header">
-          <BooksHeader
-            searchInput={searchInput}
-            getShelf={this.getShelf}
-            changeSearchInput={this.changeSearchInput}
-            enterSearchInput={this.enterSearchInput}
-          />
-        </div>
-
-        <div
-          className="something-wrong-view-container"
-          testid="somethingWrongViewContainer"
+      <div
+        className="something-wrong-view-container"
+        testid="somethingWrongViewContainer"
+      >
+        <img
+          alt="failure view"
+          className="something-wrong-view"
+          src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
+        />
+        <p className="something-wrong-heading">
+          Something went wrong. Please try again
+        </p>
+        <button
+          type="button"
+          className="something-wrong-try-again-button"
+          onClick={this.onTryAgainButtonClicked}
         >
-          <img
-            alt="failure view"
-            className="something-wrong-view"
-            src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1644112090/BookHub/SmthngwntWrong_dbyzgy.png"
-          />
-          <p className="something-wrong-heading">
-            Something went wrong. Please try again
-          </p>
-          <button
-            type="button"
-            className="something-wrong-try-again-button"
-            onClick={this.onTryAgainButtonClicked}
-          >
-            Try Again
-          </button>
-        </div>
+          Try Again
+        </button>
       </div>
     )
   }
@@ -263,7 +243,18 @@ class BookShelves extends Component {
           <div className="books-view">
             <div className="status-container">{this.renderShelves()}</div>
             <div className="books-and-header-container">
-              {this.renderBooksList()}
+              <div className="status-books-container">
+                <div className="books-header">
+                  <BooksHeader
+                    searchInput={searchInput}
+                    getShelf={this.getShelf}
+                    changeSearchInput={this.changeSearchInput}
+                    enterSearchInput={this.enterSearchInput}
+                  />
+                </div>
+
+                {this.renderBooksList()}
+              </div>
             </div>
           </div>
           <div className="footer-section">
