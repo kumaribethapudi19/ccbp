@@ -232,7 +232,7 @@ class BookShelves extends Component {
     const {apiStatus} = this.state
     console.log(this.props)
 
-    const {activeShelf} = this.state
+    const {activeShelf, searchInput} = this.state
     console.log(`activeShelf id is:${activeShelf}`)
     return (
       <div>
