@@ -31,6 +31,7 @@ class Login extends Component {
   }
 
   onSubmitFailure = errorMsg => {
+    console.log(errorMsg)
     this.setState({showSubmitError: true, errorMsg})
   }
 

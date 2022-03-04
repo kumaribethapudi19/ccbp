@@ -1,6 +1,7 @@
 import './index.css'
 
 const ShelfItem = props => {
+  console.log(`props came are: ${props}`)
   const {shelfDetails, onStatusChange, isActive} = props
   const {id, value, label} = shelfDetails
   const onClickStatusItem = () => {

@@ -4,12 +4,17 @@ import './index.css'
 
 const BooksHeader = props => {
   const {
+    // changeInSearch,
     getShelf,
     searchInput,
-
+    // onChangeOfSearchInput,
     changeSearchInput,
     enterSearchInput,
   } = props
+
+  console.log(`HEADER FUNCTION CALLED`)
+  console.log(searchInput)
+  console.log(getShelf())
 
   const onEnterSearchInput = event => {
     if (event.key === 'Enter') {
@@ -38,7 +43,10 @@ const BooksHeader = props => {
     return `Read`
   }
 
+  console.log(`searchInput:${searchInput}`)
+
   const selectedShelfName = getShelfName()
+  console.log(`selected SHELF NAME:${selectedShelfName}`)
 
   return (
     <div className="books-header">

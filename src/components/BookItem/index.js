@@ -3,6 +3,7 @@ import {BsFillStarFill} from 'react-icons/bs'
 import './index.css'
 
 const BookItem = props => {
+  console.log(`props came are: ${props}`)
   const {bookItemDetails} = props
   const {title, rating, authorName, coverPic, readStatus, id} = bookItemDetails
 
