@@ -20,7 +20,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    console.log('component did mount method')
     this.getTopRatedBooks()
   }
 
@@ -28,7 +27,7 @@ class Home extends Component {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    console.log('get toprated books list')
+
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const options = {
@@ -38,12 +37,11 @@ class Home extends Component {
       method: 'GET',
     }
 
-    console.log('After fetching get the response')
     const response = await fetch(url, options)
-    console.log(response)
+
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
+
       const updatedData = fetchedData.books.map(book => ({
         id: book.id,
         authorName: book.author_name,
@@ -69,21 +67,18 @@ class Home extends Component {
 
   renderCarousal = () => {
     const {topRatedBooksList} = this.state
-    console.log(topRatedBooksList)
+
     return (
       <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
     )
   }
 
   onClickFindBooks = () => {
-    console.log('Find Books Clicked')
-    console.log(this.props)
     const {history} = this.props
     history.push('/shelf')
   }
 
   onTryAgainButtonClicked = () => {
-    console.log('Try Again Button clicked')
     this.getTopRatedBooks()
   }
 
