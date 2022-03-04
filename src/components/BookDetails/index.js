@@ -20,7 +20,6 @@ class BookDetails extends Component {
   }
 
   componentDidMount() {
-    console.log('component did mount method')
     this.getBookDetails()
   }
 
@@ -33,9 +32,9 @@ class BookDetails extends Component {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    console.log('get book Details')
+
     const jwtToken = Cookies.get('jwt_token')
-    console.log(`bookId is : ${bookId}`)
+
     const url = `https://apis.ccbp.in/book-hub/books/${bookId}`
     const options = {
       headers: {
@@ -43,12 +42,12 @@ class BookDetails extends Component {
       },
       method: 'GET',
     }
-    console.log('After fetching get the response')
+
     const response = await fetch(url, options)
-    console.log(response)
+
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
+
       const updatedData = {
         aboutAuthor: fetchedData.book_details.about_author,
         aboutBook: fetchedData.book_details.about_book,
@@ -59,7 +58,6 @@ class BookDetails extends Component {
         readStatus: fetchedData.book_details.read_status,
         title: fetchedData.book_details.title,
       }
-      console.log(updatedData)
 
       this.setState({
         bookData: updatedData,
