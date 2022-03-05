@@ -246,15 +246,15 @@ class BookShelves extends Component {
               </div>
             </div>
           </div>
-          <div className="footer-section">
-            <div className="footer-icons-container">
-              <FaGoogle className="icon-style" />
-              <FaTwitter className="icon-style" />
-              <FaInstagram className="icon-style" />
-              <FaYoutube className="icon-style" />
-            </div>
-            <p className="footer-note">Contact us</p>
+        </div>
+        <div className="footer-section">
+          <div className="footer-icons-container">
+            <FaGoogle className="icon-style" />
+            <FaTwitter className="icon-style" />
+            <FaInstagram className="icon-style" />
+            <FaYoutube className="icon-style" />
           </div>
+          <p className="footer-note">Contact us</p>
         </div>
       </div>
     )
