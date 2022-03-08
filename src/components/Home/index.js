@@ -13,6 +13,7 @@ const apiStatusConstants = {
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
+
 class Home extends Component {
   state = {
     topRatedBooksList: [],
@@ -100,7 +101,12 @@ class Home extends Component {
 
     return shouldShowBooksList ? (
       <div className="slick-display-style">
-        <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
+        <ul className="slider-container" testid="sliderContainer">
+          <BooksSlick
+            topRatedBooksList={topRatedBooksList}
+            testid="booksSlick"
+          />
+        </ul>
       </div>
     ) : (
       <div className="something-wrong-view-container">
