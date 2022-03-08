@@ -1,5 +1,10 @@
 import {Component} from 'react'
+import {Link, withRouter} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import Slider from 'react-slick'
+
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import Cookies from 'js-cookie'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import Header from '../Header'
@@ -12,6 +17,28 @@ const apiStatusConstants = {
   success: 'SUCCESS',
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
+}
+
+const settings1 = {
+  dots: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 1048,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 }
 
 class Home extends Component {
@@ -68,14 +95,6 @@ class Home extends Component {
     </div>
   )
 
-  renderCarousal = () => {
-    const {topRatedBooksList} = this.state
-    console.log(topRatedBooksList)
-    return (
-      <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
-    )
-  }
-
   onClickFindBooks = () => {
     console.log('Find Books Clicked')
     console.log(this.props)
@@ -101,15 +120,26 @@ class Home extends Component {
 
     return shouldShowBooksList ? (
       <div className="slick-display-style">
-        <ul className="slider-container" testid="sliderContainer">
-          {topRatedBooksList.map(eachBook => (
-            <BooksSlick
-              eachBook={eachBook}
-              key={eachBook.id}
-              testid="booksSlick"
-            />
-          ))}
-        </ul>
+        <Slider {...settings1}>
+          <ul className="slider-container" testid="sliderContainer">
+            {topRatedBooksList.map(eachBook => {
+              const {coverPic, title, authorName, id} = eachBook
+              return (
+                <Link to={`/books/${id}`}>
+                  <li key={eachBook.id} className="top-rated-book-card-style">
+                    <img
+                      className="top-rated-book-pic-style"
+                      src={coverPic}
+                      alt={title}
+                    />
+                    <h1 className="top-rated-book-title-style">{title}</h1>
+                    <p className="top-rated-book-name-style">{authorName} </p>
+                  </li>
+                </Link>
+              )
+            })}
+          </ul>
+        </Slider>
       </div>
     ) : (
       <div className="something-wrong-view-container">
