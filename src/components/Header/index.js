@@ -56,7 +56,7 @@ class Header extends Component {
         <nav className="nav-header">
           <Link to="/">
             <img
-              className="website-logo"
+              className="home-logo"
               src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
               alt="website logo"
             />
