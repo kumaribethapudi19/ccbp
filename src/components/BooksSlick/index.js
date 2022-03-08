@@ -33,23 +33,25 @@ const BooksSlick = props => {
 
   return (
     <Slider {...settings1}>
-      {topRatedBooksList.map(each => {
-        const {coverPic, title, authorName, id} = each
-        console.log(id)
-        return (
-          <Link to={`/books/${id}`}>
-            <li key={each.id} className="top-rated-book-card-style">
-              <img
-                className="top-rated-book-pic-style"
-                src={coverPic}
-                alt={title}
-              />
-              <h1 className="top-rated-book-title-style">{title}</h1>
-              <p className="top-rated-book-name-style">{authorName} </p>
-            </li>
-          </Link>
-        )
-      })}
+      <ul className="slider-container" testid="sliderContainer">
+        {topRatedBooksList.map(each => {
+          const {coverPic, title, authorName, id} = each
+          console.log(id)
+          return (
+            <Link to={`/books/${id}`}>
+              <li key={each.id} className="top-rated-book-card-style">
+                <img
+                  className="top-rated-book-pic-style"
+                  src={coverPic}
+                  alt={title}
+                />
+                <h1 className="top-rated-book-title-style">{title}</h1>
+                <p className="top-rated-book-name-style">{authorName} </p>
+              </li>
+            </Link>
+          )
+        })}
+      </ul>
     </Slider>
   )
 }

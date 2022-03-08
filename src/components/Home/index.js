@@ -101,12 +101,7 @@ class Home extends Component {
 
     return shouldShowBooksList ? (
       <div className="slick-display-style">
-        <ul className="slider-container" testid="sliderContainer">
-          <BooksSlick
-            topRatedBooksList={topRatedBooksList}
-            testid="booksSlick"
-          />
-        </ul>
+        <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
       </div>
     ) : (
       <div className="something-wrong-view-container">
