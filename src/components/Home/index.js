@@ -13,7 +13,6 @@ const apiStatusConstants = {
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
-
 class Home extends Component {
   state = {
     topRatedBooksList: [],
@@ -88,21 +87,13 @@ class Home extends Component {
     this.getTopRatedBooks()
   }
 
-  renderLoadingView = () => (
-    <div className="bookhub-loader-container" testid="loader">
-      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
-    </div>
-  )
-
-  renderTopRatedBooksListView = () => {
+  renderTopRatedBooksList = () => {
     const {topRatedBooksList} = this.state
 
     const shouldShowBooksList = topRatedBooksList.length !== 0
 
     return shouldShowBooksList ? (
-      <div className="slick-display-style">
-        <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
-      </div>
+      <div className="slick-display-style">{this.renderCarousal()}</div>
     ) : (
       <div className="something-wrong-view-container">
         <img
@@ -123,6 +114,14 @@ class Home extends Component {
       </div>
     )
   }
+
+  renderLoadingView = () => (
+    <div className="bookhub-loader-container" testid="loader">
+      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  renderTopRatedBooksListView = () => this.renderTopRatedBooksList()
 
   renderFailureView = () => (
     <div

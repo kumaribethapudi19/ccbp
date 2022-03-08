@@ -32,8 +32,8 @@ const BooksSlick = props => {
   }
 
   return (
-    <Slider {...settings1}>
-      <ul className="slider-container" testid="sliderContainer">
+    <ul className="slider-container" testid="sliderContainer">
+      <Slider {...settings1}>
         {topRatedBooksList.map(each => {
           const {coverPic, title, authorName, id} = each
           console.log(id)
@@ -51,8 +51,8 @@ const BooksSlick = props => {
             </Link>
           )
         })}
-      </ul>
-    </Slider>
+      </Slider>
+    </ul>
   )
 }
 
