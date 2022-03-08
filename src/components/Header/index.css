@@ -1,15 +1,15 @@
 .nav-header {
-  height: 20vh;
+  height: 56px;
   width: 100%;
   background-color: #ffffff;
   border: 2px solid #ffffff;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.nav-bar-container {
+.navbar-container {
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -36,11 +36,15 @@
   width: 100%;
   text-align: right;
   color: #475569;
+  margin-right: 20px;
+  margin-left: auto;
 }
 
 .ham-menu-display {
+  display: flex;
   background-color: #e5e5e5;
-  height: 10vh;
+  height: 40px;
+  margin-top: 0px;
 }
 
 .nav-menu-list-mobile {
@@ -93,7 +97,7 @@
 @media Screen and (min-width: 768px) {
   .nav-header {
   }
-  .nav-bar-container {
+  .navbar-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -107,10 +111,9 @@
   }
 
   .home-logo {
-    width: 18%;
-    height: 75%;
-
-    width: 165px;
+    width: 20%;
+    height: 5%;
+    align-self: center;
   }
   .nav-menu {
     list-style-type: none;

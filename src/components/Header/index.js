@@ -54,35 +54,37 @@ class Header extends Component {
     return (
       <>
         <nav className="nav-header">
-          <Link to="/">
-            <img
-              className="home-logo"
-              src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
-              alt="website logo"
-            />
-          </Link>
-          <ul className="nav-menu">
-            <Link to="/" className="nav-link">
-              <li className="nav-menu-item">Home</li>
+          <div className="navbar-container">
+            <Link to="/">
+              <img
+                className="home-logo"
+                src="https://res.cloudinary.com/dp7ibjh2t/image/upload/v1643911378/BookHub/Bkhub_title_b9mwj8.png"
+                alt="website logo"
+              />
             </Link>
-            <Link to="/shelf" className="nav-link">
-              <li className="nav-menu-item">BookShelves</li>
-            </Link>
+            <ul className="nav-menu">
+              <Link to="/" className="nav-link">
+                <li className="nav-menu-item">Home</li>
+              </Link>
+              <Link to="/shelf" className="nav-link">
+                <li className="nav-menu-item">BookShelves</li>
+              </Link>
+              <button
+                type="button"
+                className="logout-desktop-btn"
+                onClick={this.onClickLogout}
+              >
+                Logout
+              </button>
+            </ul>
             <button
               type="button"
-              className="logout-desktop-btn"
-              onClick={this.onClickLogout}
+              onClick={this.renderHamburgerMenu}
+              className="hamburger-icon"
             >
-              Logout
+              <GiHamburgerMenu />
             </button>
-          </ul>
-          <button
-            type="button"
-            onClick={this.renderHamburgerMenu}
-            className="hamburger-icon"
-          >
-            <GiHamburgerMenu />
-          </button>
+          </div>
         </nav>
         <div className="ham-menu-display">
           {isButtonClicked ? this.renderMenu() : null}
