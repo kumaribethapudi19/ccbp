@@ -102,10 +102,13 @@ class Home extends Component {
     return shouldShowBooksList ? (
       <div className="slick-display-style">
         <ul className="slider-container" testid="sliderContainer">
-          <BooksSlick
-            topRatedBooksList={topRatedBooksList}
-            testid="booksSlick"
-          />
+          {topRatedBooksList.map(eachBook => (
+            <BooksSlick
+              eachBook={eachBook}
+              key={eachBook.id}
+              testid="booksSlick"
+            />
+          ))}
         </ul>
       </div>
     ) : (

@@ -7,8 +7,10 @@ import 'slick-carousel/slick/slick-theme.css'
 import './index.css'
 
 const BooksSlick = props => {
-  const {topRatedBooksList} = props
-  console.log(topRatedBooksList)
+  const {eachBook} = props
+  const {coverPic, title, authorName, id} = eachBook
+  console.log(id)
+
   const settings1 = {
     dots: false,
     slidesToShow: 4,
@@ -33,23 +35,17 @@ const BooksSlick = props => {
 
   return (
     <Slider {...settings1}>
-      {topRatedBooksList.map(each => {
-        const {coverPic, title, authorName, id} = each
-        console.log(id)
-        return (
-          <Link to={`/books/${id}`}>
-            <li key={each.id} className="top-rated-book-card-style">
-              <img
-                className="top-rated-book-pic-style"
-                src={coverPic}
-                alt={title}
-              />
-              <h1 className="top-rated-book-title-style">{title}</h1>
-              <p className="top-rated-book-name-style">{authorName} </p>
-            </li>
-          </Link>
-        )
-      })}
+      <Link to={`/books/${id}`}>
+        <li key={eachBook.id} className="top-rated-book-card-style">
+          <img
+            className="top-rated-book-pic-style"
+            src={coverPic}
+            alt={title}
+          />
+          <h1 className="top-rated-book-title-style">{title}</h1>
+          <p className="top-rated-book-name-style">{authorName} </p>
+        </li>
+      </Link>
     </Slider>
   )
 }
