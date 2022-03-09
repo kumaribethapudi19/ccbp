@@ -104,7 +104,7 @@ class Home extends Component {
             const {coverPic, title, authorName, id} = eachBook
             return (
               <Link to={`/books/${id}`}>
-                <li className="top-rated-book-card-style">
+                <li className="top-rated-book-card-style" key={eachBook.id}>
                   <img
                     className="top-rated-book-pic-style"
                     src={coverPic}
