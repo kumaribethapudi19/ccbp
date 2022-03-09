@@ -1,5 +1,5 @@
-import {Link, withRouter} from 'react-router-dom'
-import Slider from 'react-slick'
+import {Link} from 'react-router-dom'
+
 import './index.css'
 
 const BooksSlick = props => {
@@ -16,4 +16,4 @@ const BooksSlick = props => {
   )
 }
 
-export default withRouter(BooksSlick)
+export default BooksSlick
