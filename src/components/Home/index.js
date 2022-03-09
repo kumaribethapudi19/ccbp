@@ -103,7 +103,7 @@ class Home extends Component {
           {topRatedBooksList.map(eachBook => {
             const {coverPic, title, authorName, id} = eachBook
             return (
-              <li className="top-rated-book-card-style" key={eachBook.id}>
+              <li className="top-rated-book-card-style">
                 <Link to={`/books/${id}`}>
                   <img
                     className="top-rated-book-pic-style"
