@@ -2,12 +2,13 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
+
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
 
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import Header from '../Header'
-import BooksSlick from '../BooksSlick'
 
 import './index.css'
 
@@ -99,13 +100,22 @@ class Home extends Component {
     return (
       <ul className="slider-container" testid="sliderContainer">
         <Slider {...settings1}>
-          {topRatedBooksList.map(eachBook => (
-            <BooksSlick
-              eachBook={eachBook}
-              key={eachBook.id}
-              testid="booksSlick"
-            />
-          ))}
+          {topRatedBooksList.map(eachBook => {
+            const {coverPic, title, authorName, id} = eachBook
+            return (
+              <Link to={`/books/${id}`}>
+                <li className="top-rated-book-card-style">
+                  <img
+                    className="top-rated-book-pic-style"
+                    src={coverPic}
+                    alt={title}
+                  />
+                  <h1 className="top-rated-book-title-style">{title}</h1>
+                  <p className="top-rated-book-name-style">{authorName} </p>
+                </li>
+              </Link>
+            )
+          })}
         </Slider>
       </ul>
     )
