@@ -87,7 +87,13 @@ class Home extends Component {
     this.getTopRatedBooks()
   }
 
-  renderTopRatedBooksList = () => {
+  renderLoadingView = () => (
+    <div className="bookhub-loader-container" testid="loader">
+      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  renderTopRatedBooksListView = () => {
     const {topRatedBooksList} = this.state
 
     const shouldShowBooksList = topRatedBooksList.length !== 0
@@ -114,14 +120,6 @@ class Home extends Component {
       </div>
     )
   }
-
-  renderLoadingView = () => (
-    <div className="bookhub-loader-container" testid="loader">
-      <Loader type="TailSpin" color="#0b69ff" height="50" width="50" />
-    </div>
-  )
-
-  renderTopRatedBooksListView = () => this.renderTopRatedBooksList()
 
   renderFailureView = () => (
     <div
