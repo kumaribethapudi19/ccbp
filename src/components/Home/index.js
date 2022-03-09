@@ -97,8 +97,8 @@ class Home extends Component {
     const {topRatedBooksList} = this.state
     console.log(topRatedBooksList)
     return (
-      <Slider {...settings1}>
-        <ul className="slider-container" testid="sliderContainer">
+      <ul className="slider-container" testid="sliderContainer">
+        <Slider {...settings1}>
           {topRatedBooksList.map(eachBook => (
             <BooksSlick
               eachBook={eachBook}
@@ -106,8 +106,8 @@ class Home extends Component {
               testid="booksSlick"
             />
           ))}
-        </ul>
-      </Slider>
+        </Slider>
+      </ul>
     )
   }
 
