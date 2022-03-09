@@ -1,6 +1,9 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import Header from '../Header'
 import BooksSlick from '../BooksSlick'
@@ -13,6 +16,28 @@ const apiStatusConstants = {
   failure: 'FAILURE',
   inProgress: 'IN_PROGRESS',
 }
+const settings1 = {
+  dots: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 1048,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+}
+
 class Home extends Component {
   state = {
     topRatedBooksList: [],
@@ -71,7 +96,17 @@ class Home extends Component {
     const {topRatedBooksList} = this.state
     console.log(topRatedBooksList)
     return (
-      <BooksSlick topRatedBooksList={topRatedBooksList} testid="booksSlick" />
+      <Slider {...settings1}>
+        <ul className="slider-container" testid="sliderContainer">
+          {topRatedBooksList.map(eachBook => (
+            <BooksSlick
+              eachBook={eachBook}
+              key={eachBook.id}
+              testid="booksSlick"
+            />
+          ))}
+        </ul>
+      </Slider>
     )
   }
 
