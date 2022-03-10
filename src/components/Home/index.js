@@ -94,20 +94,6 @@ class Home extends Component {
     </div>
   )
 
-  renderCarousal = () => {
-    const {topRatedBooksList} = this.state
-    console.log(topRatedBooksList)
-    return (
-      <ul className="slider-container" testid="sliderContainer">
-        <Slider {...settings1}>
-          {topRatedBooksList.map(eachBook => (
-            <TopRatedBook eachBook={eachBook} key={eachBook.id} />
-          ))}
-        </Slider>
-      </ul>
-    )
-  }
-
   onClickFindBooks = () => {
     console.log('Find Books Clicked')
     console.log(this.props)
@@ -132,7 +118,15 @@ class Home extends Component {
     const shouldShowBooksList = topRatedBooksList.length !== 0
 
     return shouldShowBooksList ? (
-      <div className="slick-display-style">{this.renderCarousal()}</div>
+      <div className="slick-display-style">
+        <ul className="slider-container" testid="sliderContainer">
+          <Slider {...settings1}>
+            {topRatedBooksList.map(eachBook => (
+              <TopRatedBook eachBook={eachBook} key={eachBook.id} />
+            ))}
+          </Slider>
+        </ul>
+      </div>
     ) : (
       <div className="something-wrong-view-container">
         <img
