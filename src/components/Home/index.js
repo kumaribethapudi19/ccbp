@@ -2,7 +2,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-import {Link} from 'react-router-dom'
 
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
