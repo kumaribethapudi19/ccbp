@@ -73,9 +73,9 @@ class Home extends Component {
       console.log(fetchedData)
       const updatedData = fetchedData.books.map(book => ({
         id: book.id,
-        authorName: book.author_name,
         coverPic: book.cover_pic,
         title: book.title,
+        authorName: book.author_name,
       }))
       this.setState({
         topRatedBooksList: updatedData,
