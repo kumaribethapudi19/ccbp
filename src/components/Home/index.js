@@ -9,7 +9,7 @@ import Slider from 'react-slick'
 
 import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import Header from '../Header'
-
+import TopRatedBook from '../TopRatedBook'
 import './index.css'
 
 const apiStatusConstants = {
@@ -100,22 +100,9 @@ class Home extends Component {
     return (
       <ul className="slider-container" testid="sliderContainer">
         <Slider {...settings1}>
-          {topRatedBooksList.map(eachBook => {
-            const {coverPic, title, authorName, id} = eachBook
-            return (
-              <li className="top-rated-book-card-style">
-                <Link to={`/books/${id}`}>
-                  <img
-                    className="top-rated-book-pic-style"
-                    src={coverPic}
-                    alt={title}
-                  />
-                  <h1 className="top-rated-book-title-style">{title}</h1>
-                  <p className="top-rated-book-name-style">{authorName}</p>
-                </Link>
-              </li>
-            )
-          })}
+          {topRatedBooksList.map(eachBook => (
+            <TopRatedBook eachBook={eachBook} key={eachBook.id} />
+          ))}
         </Slider>
       </ul>
     )
