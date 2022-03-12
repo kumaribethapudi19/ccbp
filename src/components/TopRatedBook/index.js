@@ -5,7 +5,7 @@ const TopRatedBook = props => {
   const {eachBook, key} = props
   const {coverPic, title, authorName, id} = eachBook
   return (
-    <li className="top-rated-book-card-style">
+    <li className="top-rated-book-card-style" key>
       <Link to={`/books/${id}`}>
         <img className="top-rated-book-pic-style" src={coverPic} alt={title} />
         <h1 className="top-rated-book-title-style">{title}</h1>
