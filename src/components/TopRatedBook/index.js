@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const TopRatedBook = props => {
-  const {eachBook, key} = props
+  const {eachBook} = props
   const {coverPic, title, authorName, id} = eachBook
   return (
     <li className="top-rated-book-card-style">
