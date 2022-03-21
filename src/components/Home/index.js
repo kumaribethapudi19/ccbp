@@ -19,6 +19,8 @@ const apiStatusConstants = {
 }
 const settings1 = {
   dots: false,
+  infinite: false,
+  speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
   responsive: [
