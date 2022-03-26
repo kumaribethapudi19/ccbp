@@ -108,9 +108,7 @@ class BookShelves extends Component {
     }
   }
 
-  onTryAgainButtonClicked = () => {
-    this.getBooks()
-  }
+  onTryAgainButtonClicked = () => this.getBooks()
 
   renderLoadingView = () => (
     <div className="bookhub-loader-container" testid="loader">
