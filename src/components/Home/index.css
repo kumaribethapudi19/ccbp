@@ -158,8 +158,8 @@
   display: flex;
   flex-direction: column;
   background-color: #e5e5e5;
-  margin-left: 125px;
-  margin-top: 64px;
+  align-items: center;
+  padding: 50px;
 }
 
 .footer-icons-container {
@@ -167,8 +167,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100px;
-  margin-left: 125px;
 }
 
 .icon-style {
@@ -192,9 +190,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height, or 133% */
 
-  margin-left: 150px;
   color: #3d3c3c;
 }
 
@@ -358,9 +354,8 @@
   .footer-section {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #e5e5e5;
-    margin-left: 480px;
-    margin-top: 64px;
   }
 
   .footer-icons-container {

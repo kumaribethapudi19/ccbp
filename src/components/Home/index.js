@@ -229,15 +229,15 @@ class Home extends Component {
             </div>
             {this.renderViews()}
           </div>
-        </div>
-        <div className="footer-section">
-          <div className="footer-icons-container">
-            <FaGoogle className="icon-style" />
-            <FaTwitter className="icon-style" />
-            <FaInstagram className="icon-style" />
-            <FaYoutube className="icon-style" />
+          <div className="footer-section">
+            <div className="footer-icons-container">
+              <FaGoogle className="icon-style" />
+              <FaTwitter className="icon-style" />
+              <FaInstagram className="icon-style" />
+              <FaYoutube className="icon-style" />
+            </div>
+            <p className="footer-note">Contact us</p>
           </div>
-          <p className="footer-note">Contact us</p>
         </div>
       </div>
     )
