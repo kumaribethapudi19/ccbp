@@ -189,10 +189,8 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <div className="header-container">
-          <Header />
-        </div>
+      <div className="home-page">
+        <Header />
         <div className="body-container">
           <div className="home-description-card">
             <h1 className="home-page-heading">
