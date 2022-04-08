@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 12px;
 }
 
 .top-rated-book-pic-style {
@@ -11,6 +10,7 @@
   height: 99px;
 
   border-radius: 2px;
+  margin-bottom: 0px;
 }
 
 .top-rated-book-title-style {
@@ -21,12 +21,15 @@
   line-height: 16px;
   /* identical to box height, or 133% */
   height: 16px;
-  width: 64px;
+  width: 100%;
   text-align: center;
   text-decoration: none;
   /* Light / blue-gray / 700 */
 
   color: #334155;
+  margin-top: 8px;
+
+  margin-bottom: 0px;
 }
 
 .top-rated-book-name-style {
@@ -37,8 +40,10 @@
   line-height: 12px;
   text-align: center;
   height: 12px;
-  width: 67px;
+  width: 100%;
   /* Light / blue-gray / 600 */
   text-decoration: none;
   color: #475569;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
