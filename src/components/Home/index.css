@@ -7,6 +7,261 @@
   background-color: #f5f7fa;
 }
 
+.body-container {
+  background-color: #e5e5e5;
+  width: 360px;
+  height: 589px;
+}
+
+.home-description-card {
+  background-color: #e5e5e5;
+  width: 312px;
+  height: 245px;
+  padding: 24px;
+}
+
+.home-page-heading {
+  width: 312px;
+  height: 32px;
+  margin-left: 24px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-right: 24px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: #1e293b;
+}
+
+.home-page-description {
+  width: 312px;
+  height: 96px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #475569;
+  align-items: center;
+}
+
+.home-page-find-button {
+  width: 104px;
+  height: 36px;
+  margin-left: 24px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  /* Light / blue-gray / 50 */
+
+  color: #f8fafc;
+  background-color: #0284c7;
+  border-radius: 4px;
+  border: 0px solid transparent;
+}
+
+.books-display-card {
+  width: 100%;
+  height: 304px;
+  margin-left: 0px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 0.443396px rgba(40, 41, 61, 0.08),
+    0px 0.443396px 0.886792px rgba(96, 97, 112, 0.16);
+}
+
+.books-display-failure-card {
+  width: 100%;
+  height: 424px;
+  margin-left: 0px;
+  margin-bottom: 70px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 0.443396px rgba(40, 41, 61, 0.08),
+    0px 0.443396px 0.886792px rgba(96, 97, 112, 0.16);
+}
+
+.books-display-card-header {
+  display: flex;
+  justify-content: flex-start;
+}
+.books-display-failure-card-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.display-card-heading {
+  width: 130px;
+  height: 24px;
+  margin-left: 24px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* Light / blue-gray / 800 */
+
+  color: #1e293b;
+}
+
+.slider-container {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #989898;
+}
+
+.display-failure-card-heading {
+  width: 130px;
+  height: 24px;
+  margin-left: 24px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  /* Light / blue-gray / 800 */
+
+  color: #1e293b;
+}
+
+.display-card-find-button {
+  display: none;
+}
+
+.slick-display-style {
+  margin: 0px;
+  padding: 0px;
+  background-color: #ffffff;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5e5e5;
+  align-items: center;
+  padding: 50px;
+}
+
+.footer-icons-container {
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.icon-style {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13.7143px;
+  line-height: 16px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #3d3c3c;
+  height: 16px;
+  width: 14px;
+}
+
+.footer-note {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: #3d3c3c;
+}
+
+.something-wrong-view-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 59px;
+  margin-top: 20px;
+}
+
+.something-wrong-view {
+  height: 120px;
+  width: 243px;
+  margin-left: 10px;
+
+  border-radius: 0px;
+}
+
+.something-wrong-heading {
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 231px;
+  height: 16px;
+  margin-left: 65px;
+  color: #475569;
+}
+
+.something-wrong-try-again-button {
+  height: 32px;
+  width: 87px;
+  border-radius: 8px;
+  padding: 8px, 16px, 8px, 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0284c7;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  /* Light / base / white */
+
+  color: #ffffff;
+
+  order: 0;
+  flex-grow: 0;
+  margin: 12px 123px 26px 146px;
+}
+
 @media screen and (min-width: 361px) {
   .home-page {
     border-radius: 0px;

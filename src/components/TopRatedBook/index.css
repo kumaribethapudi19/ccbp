@@ -1,0 +1,44 @@
+.top-rated-book-card-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.top-rated-book-pic-style {
+  width: 146px;
+  height: 99px;
+
+  border-radius: 2px;
+}
+
+.top-rated-book-title-style {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+  height: 16px;
+  width: 64px;
+  text-align: center;
+  text-decoration: none;
+  /* Light / blue-gray / 700 */
+
+  color: #334155;
+}
+
+.top-rated-book-name-style {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  height: 12px;
+  width: 67px;
+  /* Light / blue-gray / 600 */
+  text-decoration: none;
+  color: #475569;
+}
