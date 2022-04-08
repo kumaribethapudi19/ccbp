@@ -2,7 +2,10 @@
   height: 56px;
   background-color: #ffffff;
   border: 2px solid #ffffff;
-  padding: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -81,4 +84,81 @@
 
 .cross-icon-style {
   margin-left: 20px;
+}
+
+@media Screen and (min-width: 361px) {
+  .nav-header {
+    height: 89px;
+    width: 1440px;
+    background-color: #ffffff;
+    border: 1px solid #e4e7eb;
+
+    padding-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .home-logo {
+    width: 133px;
+    height: 41px;
+    margin-left: 150px;
+  }
+
+  .nav-menu {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav-link {
+    width: 46px;
+    height: 24px;
+    margin-right: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0284c7;
+  }
+  .shelves-link {
+    width: 96px;
+    height: 24px;
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0284c7;
+    margin-right: 24px;
+  }
+
+  .logout-desktop-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+
+    width: 73px;
+    height: 32px;
+
+    background-color: #0284c7;
+    border-radius: 4px;
+    color: #ffffff;
+
+    margin-left: 8px;
+    margin-right: 150px;
+  }
+
+  .hamburger-icon {
+    display: none;
+  }
 }

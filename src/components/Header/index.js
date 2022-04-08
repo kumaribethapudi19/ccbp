@@ -65,7 +65,7 @@ class Header extends Component {
             <Link to="/" className="nav-link">
               <li className="nav-menu-item">Home</li>
             </Link>
-            <Link to="/shelf" className="nav-link">
+            <Link to="/shelf" className="shelves-link">
               <li className="nav-menu-item">BookShelves</li>
             </Link>
             <button
